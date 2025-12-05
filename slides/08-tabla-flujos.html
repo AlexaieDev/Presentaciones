@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Flujos - LegalFlow AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .tabla-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tabla-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .tabla-header h2 {
+            font-size: 2.5rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 2px solid var(--color-border);
+            background: transparent;
+            color: var(--color-text-secondary);
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+        }
+
+        .filter-btn.active {
+            background: var(--color-cyan);
+            border-color: var(--color-cyan);
+            color: var(--color-bg-primary);
+        }
+
+        .filter-btn[data-filter="S"] { border-color: #FF3366; }
+        .filter-btn[data-filter="S"].active { background: #FF3366; border-color: #FF3366; }
+        .filter-btn[data-filter="A"] { border-color: #00D4AA; }
+        .filter-btn[data-filter="A"].active { background: #00D4AA; border-color: #00D4AA; }
+        .filter-btn[data-filter="B"] { border-color: #FFB800; }
+        .filter-btn[data-filter="B"].active { background: #FFB800; border-color: #FFB800; }
+        .filter-btn[data-filter="C"] { border-color: #9966FF; }
+        .filter-btn[data-filter="C"].active { background: #9966FF; border-color: #9966FF; }
+
+        .tabla-wrapper {
+            flex: 1;
+            overflow: hidden;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+            min-height: 0;
+        }
+
+        .tabla-scroll {
+            height: 100%;
+            max-height: calc(100vh - 450px);
+            overflow-y: auto;
+            padding-bottom: 20px;
+        }
+
+        /* Navegacion entre slides */
+        .slide-navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: var(--color-bg-card);
+            padding: 12px 24px;
+            border-radius: 50px;
+            border: 1px solid var(--color-border);
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid var(--color-border);
+            border-radius: 50%;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            border-color: var(--color-cyan);
+            color: var(--color-cyan);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .nav-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        .nav-indicator {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .nav-home {
+            padding: 8px 16px;
+            border-radius: 20px;
+            width: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        th {
+            background: var(--color-bg-card);
+            padding: 16px 20px;
+            text-align: left;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--color-cyan);
+            border-bottom: 2px solid var(--color-cyan);
+        }
+
+        th:first-child {
+            width: 50px;
+        }
+
+        td {
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+            vertical-align: middle;
+        }
+
+        tr:hover td {
+            background: var(--color-bg-card);
+        }
+
+        .flujo-name {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .tier-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            min-width: 45px;
+        }
+
+        .tier-S { background: #FF3366; color: white; }
+        .tier-A { background: #00D4AA; color: #0a0a0f; }
+        .tier-B { background: #FFB800; color: #0a0a0f; }
+        .tier-C { background: #9966FF; color: white; }
+        .tier-D { background: #6B7280; color: white; }
+        .tier-E { background: #374151; color: #b0b0c0; }
+
+        .impacto-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .impacto-critico { background: rgba(255, 51, 102, 0.2); color: #FF3366; }
+        .impacto-alto { background: rgba(0, 212, 170, 0.2); color: #00D4AA; }
+        .impacto-medio { background: rgba(255, 184, 0, 0.2); color: #FFB800; }
+        .impacto-bajo { background: rgba(107, 114, 128, 0.2); color: #9CA3AF; }
+
+        .afectados-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .afectado-tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            background: var(--color-bg-secondary);
+            border-radius: 4px;
+            color: var(--color-text-muted);
+        }
+
+        /* Resumen inferior */
+        .tabla-summary {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .summary-item {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-sm);
+            padding: 16px;
+            text-align: center;
+            border-top: 3px solid;
+        }
+
+        .summary-item.tier-s { border-color: #FF3366; }
+        .summary-item.tier-a { border-color: #00D4AA; }
+        .summary-item.tier-b { border-color: #FFB800; }
+        .summary-item.tier-c { border-color: #9966FF; }
+        .summary-item.tier-d { border-color: #6B7280; }
+        .summary-item.tier-e { border-color: #374151; }
+
+        .summary-tier {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .summary-item.tier-s .summary-tier { color: #FF3366; }
+        .summary-item.tier-a .summary-tier { color: #00D4AA; }
+        .summary-item.tier-b .summary-tier { color: #FFB800; }
+        .summary-item.tier-c .summary-tier { color: #9966FF; }
+        .summary-item.tier-d .summary-tier { color: #6B7280; }
+        .summary-item.tier-e .summary-tier { color: #374151; }
+
+        .summary-count {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+        }
+
+        .summary-label {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+            margin-top: 4px;
+        }
+    </style>
+</head>
+<body>
+    <section class="slide" id="slide-8">
+        <div class="slide-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>LegalFlow AI</span>
+            </div>
+            <span class="slide-number">08 / 11</span>
+        </div>
+
+        <div class="slide-content">
+            <div class="tabla-container">
+                <div class="tabla-header">
+                    <h2>75 Flujos con <span class="text-gradient">Afectacion e Impacto</span></h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all" onclick="filterTable('all')">Todos</button>
+                        <button class="filter-btn" data-filter="S" onclick="filterTable('S')">Tier S</button>
+                        <button class="filter-btn" data-filter="A" onclick="filterTable('A')">Tier A</button>
+                        <button class="filter-btn" data-filter="B" onclick="filterTable('B')">Tier B</button>
+                        <button class="filter-btn" data-filter="C" onclick="filterTable('C')">Tier C</button>
+                    </div>
+                </div>
+
+                <div class="tabla-wrapper">
+                    <div class="tabla-scroll">
+                        <table class="flujos-table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Flujo</th>
+                                    <th>Problema</th>
+                                    <th>Ahorro/Impacto</th>
+                                    <th>Afectados</th>
+                                    <th>Tier</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr data-tier="S">
+                                    <td>1</td>
+                                    <td class="flujo-name">Monitor de Vencimientos</td>
+                                    <td>Plazos olvidados = malpractice</td>
+                                    <td><span class="impacto-badge impacto-critico">CRITICO</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-S">S</span></td>
+                                </tr>
+                                <tr data-tier="S">
+                                    <td>2</td>
+                                    <td class="flujo-name">Detector Conflictos Interes</td>
+                                    <td>Verificacion manual lenta</td>
+                                    <td><span class="impacto-badge impacto-critico">ETICO</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Estudio</span></div></td>
+                                    <td><span class="tier-badge tier-S">S</span></td>
+                                </tr>
+                                <tr data-tier="S">
+                                    <td>3</td>
+                                    <td class="flujo-name">Chatbot Legal Telegram</td>
+                                    <td>Sin atencion 24/7</td>
+                                    <td><span class="impacto-badge impacto-alto">50+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Clientes</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-S">S</span></td>
+                                </tr>
+                                <tr data-tier="S">
+                                    <td>4</td>
+                                    <td class="flujo-name">Chatbot WhatsApp</td>
+                                    <td>Canal preferido sin atencion</td>
+                                    <td><span class="impacto-badge impacto-alto">50+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Clientes</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-S">S</span></td>
+                                </tr>
+                                <tr data-tier="S">
+                                    <td>5</td>
+                                    <td class="flujo-name">Procesador Finiquitos Masivos</td>
+                                    <td>Despidos colectivos lentos</td>
+                                    <td><span class="impacto-badge impacto-alto">20+ hrs/evento</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-S">S</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>6</td>
+                                    <td class="flujo-name">Sistema Cobranzas Masivas</td>
+                                    <td>Cartas una por una</td>
+                                    <td><span class="impacto-badge impacto-alto">25+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Asistentes</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>7</td>
+                                    <td class="flujo-name">Seguimiento Auto PJUD</td>
+                                    <td>Revision manual diaria</td>
+                                    <td><span class="impacto-badge impacto-alto">10+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>8</td>
+                                    <td class="flujo-name">Calculadora Finiquito</td>
+                                    <td>Calculos con errores</td>
+                                    <td><span class="impacto-badge impacto-alto">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>9</td>
+                                    <td class="flujo-name">Generador Contrato Trabajo</td>
+                                    <td>Redaccion manual</td>
+                                    <td><span class="impacto-badge impacto-alto">15+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>10</td>
+                                    <td class="flujo-name">Busqueda Hibrida RAG</td>
+                                    <td>Busqueda lenta de articulos</td>
+                                    <td><span class="impacto-badge impacto-alto">10+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>11</td>
+                                    <td class="flujo-name">Recordatorios Auto Clientes</td>
+                                    <td>Seguimiento manual</td>
+                                    <td><span class="impacto-badge impacto-alto">15+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Asistentes</span><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>12</td>
+                                    <td class="flujo-name">Generador Carta Despido</td>
+                                    <td>Fundamentacion legal manual</td>
+                                    <td><span class="impacto-badge impacto-alto">8+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>16</td>
+                                    <td class="flujo-name">Intake Clientes Nuevos</td>
+                                    <td>Evaluacion manual viabilidad</td>
+                                    <td><span class="impacto-badge impacto-medio">4+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>17</td>
+                                    <td class="flujo-name">Clasificador Documentos</td>
+                                    <td>Inbox desorganizado</td>
+                                    <td><span class="impacto-badge impacto-medio">8+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Asistentes</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>20</td>
+                                    <td class="flujo-name">Generador Demanda Laboral</td>
+                                    <td>Redaccion desde cero</td>
+                                    <td><span class="impacto-badge impacto-medio">10+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>31</td>
+                                    <td class="flujo-name">Calculadora Dano Moral</td>
+                                    <td>Cuantificacion subjetiva</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor fund.</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>33</td>
+                                    <td class="flujo-name">Generador Minutas Reunion</td>
+                                    <td>Minutas manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">4+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Asistentes</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tabla-summary">
+                    <div class="summary-item tier-s">
+                        <div class="summary-tier">S</div>
+                        <div class="summary-count">5 flujos</div>
+                        <div class="summary-label">Criticos</div>
+                    </div>
+                    <div class="summary-item tier-a">
+                        <div class="summary-tier">A</div>
+                        <div class="summary-count">10 flujos</div>
+                        <div class="summary-label">Alto Impacto</div>
+                    </div>
+                    <div class="summary-item tier-b">
+                        <div class="summary-tier">B</div>
+                        <div class="summary-count">15 flujos</div>
+                        <div class="summary-label">Medio-Alto</div>
+                    </div>
+                    <div class="summary-item tier-c">
+                        <div class="summary-tier">C</div>
+                        <div class="summary-count">15 flujos</div>
+                        <div class="summary-label">Medio</div>
+                    </div>
+                    <div class="summary-item tier-d">
+                        <div class="summary-tier">D</div>
+                        <div class="summary-count">15 flujos</div>
+                        <div class="summary-label">Utiles</div>
+                    </div>
+                    <div class="summary-item tier-e">
+                        <div class="summary-tier">E</div>
+                        <div class="summary-count">15 flujos</div>
+                        <div class="summary-label">Complementarios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="text-muted">Tabla de Flujos con Impacto</span>
+            <span class="text-muted">LegalFlow AI</span>
+        </div>
+    </section>
+
+    <!-- Navegacion entre slides -->
+    <nav class="slide-navigation">
+        <a href="07-top-flujos-2.html" class="nav-btn" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </a>
+        <a href="../index.html" class="nav-btn nav-home" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;margin-right:4px;">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+            Menu
+        </a>
+        <span class="nav-indicator">08 / 11</span>
+        <a href="09-catalogo-tiers.html" class="nav-btn" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </a>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Flujos Tier S - LegalFlow AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .flujos-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flujos-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .flujos-header h2 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        .flujos-header h2 .tier-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--color-red);
+            color: white;
+            font-size: 1rem;
+            padding: 6px 16px;
+            border-radius: 6px;
+            vertical-align: middle;
+            margin-left: 12px;
+        }
+
+        .flujos-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 500px;
+        }
+
+        .flujos-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .flujo-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .flujo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-red);
+        }
+
+        .flujo-card:hover {
+            border-color: var(--color-red);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px var(--color-red-glow);
+        }
+
+        .flujo-number {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 51, 102, 0.15);
+            border: 2px solid var(--color-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--color-red);
+        }
+
+        .flujo-icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 51, 102, 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .flujo-icon svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--color-red);
+        }
+
+        .flujo-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .flujo-problema {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            flex: 1;
+        }
+
+        .flujo-beneficio {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            padding: 12px;
+            background: rgba(255, 51, 102, 0.05);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--color-red);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .flujo-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 12px;
+            border-top: 1px solid var(--color-border);
+            margin-top: auto;
+        }
+
+        .flujo-ahorro {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--color-red);
+            background: rgba(255, 51, 102, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .flujo-afectados {
+            font-size: 0.75rem;
+            color: var(--color-text-muted);
+        }
+
+        /* Info box */
+        .tier-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            background: linear-gradient(135deg, rgba(255, 51, 102, 0.1), rgba(255, 51, 102, 0.05));
+            border: 1px solid var(--color-red);
+            border-radius: var(--radius-md);
+            padding: 20px 30px;
+            margin-top: 30px;
+        }
+
+        .tier-info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--color-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tier-info-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke: white;
+        }
+
+        .tier-info-content h4 {
+            font-size: 1.1rem;
+            color: var(--color-red);
+            margin-bottom: 4px;
+        }
+
+        .tier-info-content p {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <section class="slide" id="slide-6">
+        <div class="slide-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>LegalFlow AI</span>
+            </div>
+            <span class="slide-number">06 / 11</span>
+        </div>
+
+        <div class="slide-content">
+            <div class="flujos-container">
+                <div class="flujos-header">
+                    <div>
+                        <h2>Top 10 Flujos Criticos <span class="tier-badge">TIER S</span></h2>
+                        <p class="flujos-subtitle">Flujos de maximo impacto que evitan perdidas y protegen al estudio</p>
+                    </div>
+                </div>
+
+                <div class="flujos-grid">
+                    <!-- Flujo 1 -->
+                    <div class="flujo-card">
+                        <span class="flujo-number">1</span>
+                        <div class="flujo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
+                        </div>
+                        <h4 class="flujo-title">Monitor de Vencimientos</h4>
+                        <p class="flujo-problema">Plazos olvidados generan malpractice y perdida de casos</p>
+                        <div class="flujo-beneficio">Alertas automaticas de prescripciones, audiencias y contratos</div>
+                        <div class="flujo-footer">
+                            <span class="flujo-ahorro">CRITICO</span>
+                            <span class="flujo-afectados">Abogados, Clientes</span>
+                        </div>
+                    </div>
+
+                    <!-- Flujo 2 -->
+                    <div class="flujo-card">
+                        <span class="flujo-number">2</span>
+                        <div class="flujo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                <line x1="12" y1="8" x2="12" y2="12"/>
+                                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                            </svg>
+                        </div>
+                        <h4 class="flujo-title">Detector Conflictos de Interes</h4>
+                        <p class="flujo-problema">Verificacion manual contra base de clientes es lenta</p>
+                        <div class="flujo-beneficio">Detecta automaticamente si contraparte es o fue cliente</div>
+                        <div class="flujo-footer">
+                            <span class="flujo-ahorro">ETICO</span>
+                            <span class="flujo-afectados">Abogados, Estudio</span>
+                        </div>
+                    </div>
+
+                    <!-- Flujo 3 -->
+                    <div class="flujo-card">
+                        <span class="flujo-number">3</span>
+                        <div class="flujo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h4 class="flujo-title">Chatbot Legal 24/7 Telegram</h4>
+                        <p class="flujo-problema">Consultas fuera de horario quedan sin respuesta</p>
+                        <div class="flujo-beneficio">Atencion inmediata con IA entrenada en ley chilena</div>
+                        <div class="flujo-footer">
+                            <span class="flujo-ahorro">50+ hrs/mes</span>
+                            <span class="flujo-afectados">Clientes, Abogados</span>
+                        </div>
+                    </div>
+
+                    <!-- Flujo 4 -->
+                    <div class="flujo-card">
+                        <span class="flujo-number">4</span>
+                        <div class="flujo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                        </div>
+                        <h4 class="flujo-title">Chatbot WhatsApp Business</h4>
+                        <p class="flujo-problema">Clientes prefieren WhatsApp como canal de comunicacion</p>
+                        <div class="flujo-beneficio">Canal preferido de clientes, mismo motor que Telegram</div>
+                        <div class="flujo-footer">
+                            <span class="flujo-ahorro">50+ hrs/mes</span>
+                            <span class="flujo-afectados">Clientes, Abogados</span>
+                        </div>
+                    </div>
+
+                    <!-- Flujo 5 -->
+                    <div class="flujo-card">
+                        <span class="flujo-number">5</span>
+                        <div class="flujo-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                                <line x1="12" y1="18" x2="12" y2="12"/>
+                                <line x1="9" y1="15" x2="15" y2="15"/>
+                            </svg>
+                        </div>
+                        <h4 class="flujo-title">Procesador Finiquitos Masivos</h4>
+                        <p class="flujo-problema">Despidos colectivos toman dias de trabajo manual</p>
+                        <div class="flujo-beneficio">Carga lista, calcula todo y genera documentos automaticamente</div>
+                        <div class="flujo-footer">
+                            <span class="flujo-ahorro">20+ hrs/evento</span>
+                            <span class="flujo-afectados">RRHH, Abogados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tier-info">
+                    <div class="tier-info-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="tier-info-content">
+                        <h4>Flujos Tier S - Implementacion Prioritaria (Semana 1-2)</h4>
+                        <p>Estos 5 flujos son criticos para la operacion. Evitan perdida de casos, protegen la etica profesional y garantizan atencion 24/7 a clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="text-muted">Tier S - Flujos Criticos</span>
+            <span class="text-muted">LegalFlow AI</span>
+        </div>
+    </section>
+
+    <!-- Navegacion entre slides -->
+    <nav class="slide-navigation">
+        <a href="05-impacto-procesos.html" class="nav-btn" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </a>
+        <a href="../index.html" class="nav-btn nav-home" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Menu
+        </a>
+        <span class="nav-indicator">06 / 11</span>
+        <a href="07-top-flujos-2.html" class="nav-btn" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

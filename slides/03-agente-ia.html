@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Que es un Agente de IA - LegalFlow AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .agente-container {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 80px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .agente-left h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .agente-left h2 .cyan {
+            color: var(--color-cyan);
+        }
+
+        .agente-definition {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-cyan);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .agente-definition::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 6rem;
+            color: var(--color-cyan);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .agente-definition p {
+            font-size: 1.3rem;
+            color: var(--color-text-primary);
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .agente-example {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            border-left: 4px solid var(--color-cyan);
+        }
+
+        .agente-example-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-cyan);
+            margin-bottom: 12px;
+        }
+
+        .agente-example p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+        }
+
+        .agente-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .agente-feature {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .agente-feature::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .agente-feature:hover {
+            border-color: var(--color-cyan);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px var(--color-cyan-glow);
+        }
+
+        .agente-feature:hover::after {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(255, 51, 102, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            position: relative;
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.3;
+        }
+
+        .feature-icon svg {
+            width: 36px;
+            height: 36px;
+            stroke: var(--color-cyan);
+            position: relative;
+            z-index: 1;
+        }
+
+        .agente-feature h4 {
+            font-size: 1.3rem;
+            color: var(--color-text-primary);
+            margin-bottom: 12px;
+        }
+
+        .agente-feature p {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Diagrama visual */
+        .agente-diagram {
+            position: relative;
+            height: 200px;
+            margin-top: 40px;
+        }
+
+        .diagram-center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--color-bg-primary);
+            box-shadow: 0 0 60px var(--color-cyan-glow);
+        }
+
+        .diagram-orbit {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 2px dashed var(--color-border);
+            border-radius: 50%;
+        }
+
+        .diagram-node {
+            position: absolute;
+            width: 70px;
+            height: 70px;
+            background: var(--color-bg-card);
+            border: 2px solid var(--color-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            text-align: center;
+        }
+
+        .diagram-node:nth-child(2) { top: -35px; left: 50%; transform: translateX(-50%); }
+        .diagram-node:nth-child(3) { top: 50%; right: -35px; transform: translateY(-50%); }
+        .diagram-node:nth-child(4) { bottom: -35px; left: 50%; transform: translateX(-50%); border-color: var(--color-red); }
+        .diagram-node:nth-child(5) { top: 50%; left: -35px; transform: translateY(-50%); }
+    </style>
+</head>
+<body>
+    <section class="slide" id="slide-3">
+        <div class="slide-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>LegalFlow AI</span>
+            </div>
+            <span class="slide-number">03 / 11</span>
+        </div>
+
+        <div class="slide-content">
+            <div class="agente-container">
+                <div class="agente-left">
+                    <h2>
+                        Que es un<br>
+                        <span class="cyan">Agente de IA</span>
+                    </h2>
+
+                    <div class="agente-definition">
+                        <p>
+                            Un <strong>Agente de IA</strong> es un software autonomo que percibe su entorno,
+                            procesa informacion y toma acciones para alcanzar objetivos especificos,
+                            sin necesidad de intervencion humana constante.
+                        </p>
+                    </div>
+
+                    <div class="agente-example">
+                        <div class="agente-example-title">Ejemplo en LegalFlow AI</div>
+                        <p>
+                            El agente "Monitor de Vencimientos" revisa diariamente todos los casos,
+                            identifica plazos proximos a vencer y envia alertas automaticas a los
+                            abogados responsables, evitando perdida de casos por prescripcion.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="agente-right">
+                    <div class="agente-features">
+                        <div class="agente-feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2a10 10 0 1 0 10 10"/>
+                                    <path d="M12 12l4-4"/>
+                                    <path d="M16 8h4v4"/>
+                                </svg>
+                            </div>
+                            <h4>Autonomia</h4>
+                            <p>Opera de forma independiente sin supervision constante</p>
+                        </div>
+
+                        <div class="agente-feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                                </svg>
+                            </div>
+                            <h4>Reactividad</h4>
+                            <p>Responde en tiempo real a cambios en el entorno</p>
+                        </div>
+
+                        <div class="agente-feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+                                    <line x1="9" y1="9" x2="9.01" y2="9"/>
+                                    <line x1="15" y1="9" x2="15.01" y2="9"/>
+                                </svg>
+                            </div>
+                            <h4>Proactividad</h4>
+                            <p>Anticipa necesidades y actua antes de que surjan problemas</p>
+                        </div>
+
+                        <div class="agente-feature">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h4>Interaccion Social</h4>
+                            <p>Comunica y colabora con usuarios y otros agentes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="text-muted">Agentes de IA</span>
+            <span class="text-muted">LegalFlow AI</span>
+        </div>
+    </section>
+
+    <!-- Navegacion entre slides -->
+    <nav class="slide-navigation">
+        <a href="02-problema.html" class="nav-btn" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </a>
+        <a href="../index.html" class="nav-btn nav-home" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Menu
+        </a>
+        <span class="nav-indicator">03 / 11</span>
+        <a href="04-agente-vs-agentic.html" class="nav-btn" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

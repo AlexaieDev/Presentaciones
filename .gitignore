@@ -1,0 +1,24 @@
+# Generated files
+*.pdf
+*.pptx
+~$*
+
+# Screenshots and temporary files
+screenshots/
+pdf_slides/
+nul
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Scripts de generacion (no necesarios para la landing page)
+generate_*.py
+
+# IDE
+.vscode/
+.idea/
+
+# Claude config
+.claude/

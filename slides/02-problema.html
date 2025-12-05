@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Problema - LegalFlow AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .problema-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            height: 100%;
+            align-items: center;
+        }
+
+        .problema-left h2 {
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        .problema-left h2 .red {
+            color: var(--color-red);
+        }
+
+        .problema-description {
+            font-size: 1.3rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .problema-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .problema-stat {
+            text-align: center;
+        }
+
+        .problema-stat-value {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--color-red);
+            display: block;
+        }
+
+        .problema-stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+        }
+
+        .problema-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .problema-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-md);
+            padding: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .problema-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--color-red);
+        }
+
+        .problema-card:hover {
+            border-color: var(--color-red);
+            box-shadow: 0 0 30px var(--color-red-glow);
+            transform: translateY(-4px);
+        }
+
+        .problema-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 51, 102, 0.1);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .problema-card-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--color-red);
+        }
+
+        .problema-card h4 {
+            font-size: 1.2rem;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .problema-card p {
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            line-height: 1.6;
+        }
+
+        .problema-card.large {
+            grid-column: span 2;
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .problema-card.large .problema-card-icon {
+            width: 70px;
+            height: 70px;
+            flex-shrink: 0;
+        }
+
+        .problema-card.large .problema-card-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .problema-card.large .problema-card-content h4 {
+            font-size: 1.4rem;
+        }
+
+        /* Linea decorativa */
+        .vertical-line {
+            position: absolute;
+            left: 50%;
+            top: 15%;
+            bottom: 15%;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
+        }
+    </style>
+</head>
+<body>
+    <section class="slide" id="slide-2">
+        <div class="vertical-line"></div>
+
+        <div class="slide-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>LegalFlow AI</span>
+            </div>
+            <span class="slide-number">02 / 11</span>
+        </div>
+
+        <div class="slide-content">
+            <div class="problema-container">
+                <div class="problema-left">
+                    <h2>
+                        El Problema de los<br>
+                        <span class="red">Estudios Juridicos</span>
+                    </h2>
+                    <p class="problema-description">
+                        Los estudios juridicos chilenos pierden tiempo valioso en tareas
+                        repetitivas que podrian automatizarse. Cada hora dedicada a trabajo
+                        manual es una hora menos para lo que realmente importa: sus clientes.
+                    </p>
+
+                    <div class="problema-stats">
+                        <div class="problema-stat">
+                            <span class="problema-stat-value">70%</span>
+                            <span class="problema-stat-label">Tiempo en tareas<br>repetitivas</span>
+                        </div>
+                        <div class="problema-stat">
+                            <span class="problema-stat-value">15+</span>
+                            <span class="problema-stat-label">Sistemas<br>desconectados</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problema-right">
+                    <div class="problema-cards">
+                        <div class="problema-card">
+                            <div class="problema-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12,6 12,12 16,14"/>
+                                </svg>
+                            </div>
+                            <h4>Plazos Olvidados</h4>
+                            <p>Prescripciones y audiencias que se pierden por falta de seguimiento sistematico.</p>
+                        </div>
+
+                        <div class="problema-card">
+                            <div class="problema-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <h4>Sin Atencion 24/7</h4>
+                            <p>Clientes esperando respuestas fuera de horario laboral.</p>
+                        </div>
+
+                        <div class="problema-card">
+                            <div class="problema-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </div>
+                            <h4>Documentos Manuales</h4>
+                            <p>Contratos, finiquitos y demandas redactados desde cero cada vez.</p>
+                        </div>
+
+                        <div class="problema-card">
+                            <div class="problema-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <line x1="12" y1="8" x2="12" y2="12"/>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                </svg>
+                            </div>
+                            <h4>Riesgo Etico</h4>
+                            <p>Conflictos de interes detectados tarde o no detectados.</p>
+                        </div>
+
+                        <div class="problema-card large">
+                            <div class="problema-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                                    <line x1="1" y1="10" x2="23" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="problema-card-content">
+                                <h4>Calculos con Errores</h4>
+                                <p>Finiquitos, indemnizaciones, horas extras y vacaciones calculados manualmente generan errores costosos y demandas evitables.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="text-muted">El Problema</span>
+            <span class="text-muted">LegalFlow AI</span>
+        </div>
+    </section>
+
+    <!-- Navegacion entre slides -->
+    <nav class="slide-navigation">
+        <a href="01-hero.html" class="nav-btn" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+            </svg>
+        </a>
+        <a href="../index.html" class="nav-btn nav-home" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;margin-right:4px;">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+            Menu
+        </a>
+        <span class="nav-indicator">02 / 11</span>
+        <a href="03-agente-ia.html" class="nav-btn" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+            </svg>
+        </a>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

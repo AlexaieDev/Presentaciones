@@ -1,0 +1,693 @@
+{
+  "flujos": [
+    {
+      "id": 1,
+      "nombre": "Monitor de Vencimientos",
+      "problema": "Plazos olvidados = malpractice",
+      "beneficio": "Alertas automaticas de prescripciones, audiencias, contratos",
+      "ahorro": "CRITICO - Evita perdida de casos",
+      "afectados": ["Abogados", "Clientes"],
+      "tier": "S"
+    },
+    {
+      "id": 2,
+      "nombre": "Detector Conflictos de Interes",
+      "problema": "Verificacion manual contra base de clientes",
+      "beneficio": "Detecta automaticamente si contraparte es/fue cliente",
+      "ahorro": "ETICO - Proteccion profesional",
+      "afectados": ["Abogados", "Estudio"],
+      "tier": "S"
+    },
+    {
+      "id": 3,
+      "nombre": "Chatbot Legal 24/7 (Telegram)",
+      "problema": "Consultas fuera de horario sin respuesta",
+      "beneficio": "Atencion inmediata con IA entrenada en ley chilena",
+      "ahorro": "50+ hrs/mes",
+      "afectados": ["Clientes", "Abogados"],
+      "tier": "S"
+    },
+    {
+      "id": 4,
+      "nombre": "Chatbot WhatsApp Business",
+      "problema": "Clientes prefieren WhatsApp",
+      "beneficio": "Canal preferido de clientes, mismo motor que Telegram",
+      "ahorro": "50+ hrs/mes",
+      "afectados": ["Clientes", "Abogados"],
+      "tier": "S"
+    },
+    {
+      "id": 5,
+      "nombre": "Procesador Finiquitos Masivos",
+      "problema": "Despidos colectivos toman dias",
+      "beneficio": "Carga lista, calcula todo, genera documentos",
+      "ahorro": "20+ hrs por evento",
+      "afectados": ["RRHH", "Abogados"],
+      "tier": "S"
+    },
+    {
+      "id": 6,
+      "nombre": "Sistema Cobranzas Masivas",
+      "problema": "Cartas de cobranza una por una",
+      "beneficio": "Genera por etapa + calcula intereses + envia automatico",
+      "ahorro": "25+ hrs/mes",
+      "afectados": ["Abogados", "Asistentes"],
+      "tier": "A"
+    },
+    {
+      "id": 7,
+      "nombre": "Seguimiento Automatico PJUD",
+      "problema": "Revisar causas manualmente cada dia",
+      "beneficio": "Monitorea cada 6hrs, notifica cambios de estado",
+      "ahorro": "10+ hrs/mes",
+      "afectados": ["Abogados", "Clientes"],
+      "tier": "A"
+    },
+    {
+      "id": 8,
+      "nombre": "Calculadora de Finiquito",
+      "problema": "Calculos manuales con errores",
+      "beneficio": "Antiguedad + indemnizacion + vacaciones + descuentos",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados", "RRHH"],
+      "tier": "A"
+    },
+    {
+      "id": 9,
+      "nombre": "Generador Contrato Trabajo",
+      "problema": "Redaccion manual repetitiva",
+      "beneficio": "Datos a contrato completo segun tipo",
+      "ahorro": "15+ hrs/mes",
+      "afectados": ["Abogados", "RRHH"],
+      "tier": "A"
+    },
+    {
+      "id": 10,
+      "nombre": "Busqueda Hibrida RAG",
+      "problema": "Localizar articulos relevantes toma horas",
+      "beneficio": "Busqueda semantica + keywords en legislacion chilena",
+      "ahorro": "10+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "A"
+    },
+    {
+      "id": 11,
+      "nombre": "Recordatorios Automaticos Clientes",
+      "problema": "Seguimiento manual de pendientes",
+      "beneficio": "Genera y envia por WhatsApp/Email automaticamente",
+      "ahorro": "15+ hrs/mes",
+      "afectados": ["Asistentes", "Clientes"],
+      "tier": "A"
+    },
+    {
+      "id": 12,
+      "nombre": "Generador Carta Despido",
+      "problema": "Fundamentacion legal correcta",
+      "beneficio": "Genera carta con causal y articulos correspondientes",
+      "ahorro": "8+ hrs/mes",
+      "afectados": ["Abogados", "RRHH"],
+      "tier": "A"
+    },
+    {
+      "id": 13,
+      "nombre": "Informes Mensuales Automaticos",
+      "problema": "Informes de gestion manuales",
+      "beneficio": "Genera y envia el dia 1 de cada mes a cada cliente",
+      "ahorro": "15+ hrs/mes",
+      "afectados": ["Abogados", "Clientes"],
+      "tier": "A"
+    },
+    {
+      "id": 14,
+      "nombre": "Resumidor de Expedientes",
+      "problema": "Leer expedientes largos completamente",
+      "beneficio": "IA extrae partes, hechos, resoluciones, riesgos",
+      "ahorro": "8+ hrs por expediente",
+      "afectados": ["Abogados"],
+      "tier": "A"
+    },
+    {
+      "id": 15,
+      "nombre": "Comparador Versiones Contratos",
+      "problema": "Comparar versiones manualmente",
+      "beneficio": "Identifica cambios, evalua riesgos por clausula",
+      "ahorro": "5+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "A"
+    },
+    {
+      "id": 16,
+      "nombre": "Intake Clientes Nuevos",
+      "problema": "Evaluacion manual de viabilidad",
+      "beneficio": "Evalua caso, sugiere honorarios, detecta conflictos",
+      "ahorro": "4+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 17,
+      "nombre": "Clasificador Documentos",
+      "problema": "Inbox desorganizado",
+      "beneficio": "Clasifica por tipo/materia/urgencia automaticamente",
+      "ahorro": "8+ hrs/mes",
+      "afectados": ["Asistentes"],
+      "tier": "B"
+    },
+    {
+      "id": 18,
+      "nombre": "Calculadora Horas Extras",
+      "problema": "Calculo complejo de recargos",
+      "beneficio": "50%, 100%, festivos, nocturnos automatico",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH", "Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 19,
+      "nombre": "Extractor Datos Demandas PDF",
+      "problema": "Transcribir datos manualmente",
+      "beneficio": "OCR + IA extrae partes, ROL, hechos, cuantia",
+      "ahorro": "6+ hrs/mes",
+      "afectados": ["Asistentes"],
+      "tier": "B"
+    },
+    {
+      "id": 20,
+      "nombre": "Generador Demanda Laboral",
+      "problema": "Redaccion desde cero",
+      "beneficio": "Estructura + hechos + petitorio automatico",
+      "ahorro": "10+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 21,
+      "nombre": "Generador Contestacion",
+      "problema": "Redaccion defensiva manual",
+      "beneficio": "Analiza demanda y genera contestacion estructurada",
+      "ahorro": "10+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 22,
+      "nombre": "Conciliador Liquidaciones Masivo",
+      "problema": "Errores en liquidaciones de sueldo",
+      "beneficio": "Valida AFP, salud, gratificacion vs parametros legales",
+      "ahorro": "Evita demandas",
+      "afectados": ["RRHH", "Contador"],
+      "tier": "B"
+    },
+    {
+      "id": 23,
+      "nombre": "Informe Horas Trabajadas",
+      "problema": "Reportes manuales para facturacion",
+      "beneficio": "Consolida por caso/abogado, valoriza, genera resumen",
+      "ahorro": "6+ hrs/mes",
+      "afectados": ["Admin", "Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 24,
+      "nombre": "Programador Audiencias",
+      "problema": "Coordinacion manual de audiencias",
+      "beneficio": "Programa + recordatorios + checklist automatico",
+      "ahorro": "4+ hrs/mes",
+      "afectados": ["Abogados", "Asistentes"],
+      "tier": "B"
+    },
+    {
+      "id": 25,
+      "nombre": "Calculadora Pension Alimentos",
+      "problema": "Estimacion compleja",
+      "beneficio": "Calcula segun ingresos y necesidades",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados Familia"],
+      "tier": "B"
+    },
+    {
+      "id": 26,
+      "nombre": "Generador Finiquito Individual",
+      "problema": "Redaccion manual de finiquitos",
+      "beneficio": "Genera documento listo para firma",
+      "ahorro": "3+ hrs/mes",
+      "afectados": ["RRHH", "Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 27,
+      "nombre": "Monitor Cambios Legislativos",
+      "problema": "Desconocer cambios en leyes",
+      "beneficio": "Alerta cuando BCN actualiza normativa",
+      "ahorro": "Actualizacion constante",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 28,
+      "nombre": "Generador Recurso Proteccion",
+      "problema": "Urgencia + complejidad",
+      "beneficio": "Genera recurso estructurado con garantias afectadas",
+      "ahorro": "6+ hrs/caso",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 29,
+      "nombre": "Validador Contratos Laborales",
+      "problema": "Revision manual de contratos",
+      "beneficio": "Detecta clausulas ilegales, faltantes, riesgos",
+      "ahorro": "Evita nulidades",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 30,
+      "nombre": "Cotizaciones Honorarios",
+      "problema": "Cotizar toma tiempo",
+      "beneficio": "Calcula segun tipo/complejidad/urgencia",
+      "ahorro": "3+ hrs/mes",
+      "afectados": ["Abogados"],
+      "tier": "B"
+    },
+    {
+      "id": 31,
+      "nombre": "Calculadora Dano Moral",
+      "problema": "Cuantificacion subjetiva",
+      "beneficio": "Sugiere rangos segun jurisprudencia similar",
+      "ahorro": "Mejor fundamentacion",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 32,
+      "nombre": "Calculadora Intereses Legales",
+      "problema": "Calculo manual de intereses",
+      "beneficio": "Corriente, maximo convencional, moratorio",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados", "Contador"],
+      "tier": "C"
+    },
+    {
+      "id": 33,
+      "nombre": "Generador Minutas Reunion",
+      "problema": "Minutas manuales post-reunion",
+      "beneficio": "IA genera minuta con acuerdos y tareas",
+      "ahorro": "4+ hrs/mes",
+      "afectados": ["Abogados", "Asistentes"],
+      "tier": "C"
+    },
+    {
+      "id": 34,
+      "nombre": "Validador Clausulas Abusivas",
+      "problema": "Detectar clausulas abusivas",
+      "beneficio": "Analiza contra Ley 19.496 y jurisprudencia",
+      "ahorro": "Proteccion consumidor",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 35,
+      "nombre": "Generador Anexo Contrato",
+      "problema": "Modificaciones contractuales",
+      "beneficio": "Genera anexo manteniendo estructura original",
+      "ahorro": "2+ hrs/mes",
+      "afectados": ["RRHH", "Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 36,
+      "nombre": "Calculadora Reajuste IPC",
+      "problema": "Actualizacion manual de montos",
+      "beneficio": "Aplica IPC automaticamente a cualquier monto",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados", "Contador"],
+      "tier": "C"
+    },
+    {
+      "id": 37,
+      "nombre": "Generador Recurso Nulidad",
+      "problema": "Complejidad tecnica",
+      "beneficio": "Genera recurso con causales y fundamentacion",
+      "ahorro": "8+ hrs/caso",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 38,
+      "nombre": "Asistente Preparador Audiencias",
+      "problema": "Preparacion desorganizada",
+      "beneficio": "Checklist, teoria del caso, preguntas sugeridas",
+      "ahorro": "Mejor preparacion",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 39,
+      "nombre": "Calculadora Indemnizacion Despido",
+      "problema": "Multiples variables",
+      "beneficio": "Calcula segun causal, antiguedad, topes",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados", "RRHH"],
+      "tier": "C"
+    },
+    {
+      "id": 40,
+      "nombre": "Generador Certificados Trabajo",
+      "problema": "Certificados manuales",
+      "beneficio": "7 tipos: antiguedad, renta, experiencia, etc.",
+      "ahorro": "2+ hrs/mes",
+      "afectados": ["RRHH"],
+      "tier": "C"
+    },
+    {
+      "id": 41,
+      "nombre": "Validador Prescripcion Accion",
+      "problema": "Verificar si accion prescribio",
+      "beneficio": "Calcula segun tipo de accion y plazos",
+      "ahorro": "Evita rechazos",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 42,
+      "nombre": "Ingestion BCN Legislacion",
+      "problema": "Base legal desactualizada",
+      "beneficio": "Actualiza automaticamente desde BCN",
+      "ahorro": "Base siempre actual",
+      "afectados": ["Sistema"],
+      "tier": "C"
+    },
+    {
+      "id": 43,
+      "nombre": "Generador Patrocinio y Poder",
+      "problema": "Redaccion manual",
+      "beneficio": "Art. 6-7 CPC con facultades especiales opcionales",
+      "ahorro": "1+ hr/caso",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 44,
+      "nombre": "Calculadora Costas Judiciales",
+      "problema": "Estimacion manual de costas",
+      "beneficio": "Calcula segun aranceles del Colegio",
+      "ahorro": "Mejor presupuesto",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 45,
+      "nombre": "Asistente Mediacion Laboral",
+      "problema": "Preparacion de mediaciones",
+      "beneficio": "Sugiere estrategia, MAAN, zona de posible acuerdo",
+      "ahorro": "Mejor negociacion",
+      "afectados": ["Abogados"],
+      "tier": "C"
+    },
+    {
+      "id": 46,
+      "nombre": "Generador Carta Amonestacion",
+      "problema": "Redaccion manual",
+      "beneficio": "Genera carta formal con hechos y advertencia",
+      "ahorro": "1+ hr/caso",
+      "afectados": ["RRHH"],
+      "tier": "D"
+    },
+    {
+      "id": 47,
+      "nombre": "Calculadora Vacaciones",
+      "problema": "Dias proporcionales y progresivos",
+      "beneficio": "Calcula pendientes + proporcionales + progresivas",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH"],
+      "tier": "D"
+    },
+    {
+      "id": 48,
+      "nombre": "Validador Competencia Tribunal",
+      "problema": "Determinar tribunal competente",
+      "beneficio": "Analiza materia, cuantia, territorio",
+      "ahorro": "Evita incompetencias",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 49,
+      "nombre": "Generador Reglamento Interno",
+      "problema": "Crear desde cero toma semanas",
+      "beneficio": "Genera reglamento completo personalizado",
+      "ahorro": "20+ hrs/proyecto",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 50,
+      "nombre": "Gestor Casos CRUD",
+      "problema": "Sistema de casos manual",
+      "beneficio": "Alta, baja, modificacion, consulta de casos",
+      "ahorro": "Organizacion central",
+      "afectados": ["Todo el estudio"],
+      "tier": "D"
+    },
+    {
+      "id": 51,
+      "nombre": "Calculadora Gratificacion",
+      "problema": "Art. 47 vs 50 confuso",
+      "beneficio": "Calcula ambas opciones y sugiere la mejor",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH", "Contador"],
+      "tier": "D"
+    },
+    {
+      "id": 52,
+      "nombre": "Router Multicanal",
+      "problema": "Multiples canales sin unificar",
+      "beneficio": "Unifica Telegram, WhatsApp, Email en un flujo",
+      "ahorro": "Gestion centralizada",
+      "afectados": ["Sistema"],
+      "tier": "D"
+    },
+    {
+      "id": 53,
+      "nombre": "Validador Requisitos Demanda",
+      "problema": "Checklist manual",
+      "beneficio": "Verifica todos los requisitos antes de presentar",
+      "ahorro": "Evita rechazos",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 54,
+      "nombre": "Generador Poder Simple",
+      "problema": "Poderes manuales",
+      "beneficio": "Genera poderes para tramites especificos",
+      "ahorro": "30 min/caso",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 55,
+      "nombre": "Resumen Ejecutivo Semanal",
+      "problema": "Falta visibilidad de gestion",
+      "beneficio": "Genera reporte automatico del estudio",
+      "ahorro": "Mejor control",
+      "afectados": ["Socios"],
+      "tier": "D"
+    },
+    {
+      "id": 56,
+      "nombre": "Calculadora Semana Corrida",
+      "problema": "Calculo complejo variable",
+      "beneficio": "Aplica segun dias trabajados y remuneracion",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH"],
+      "tier": "D"
+    },
+    {
+      "id": 57,
+      "nombre": "Generador Acta Comparendo",
+      "problema": "Actas manuales IT",
+      "beneficio": "Genera acta de comparendo estructurada",
+      "ahorro": "1+ hr/caso",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 58,
+      "nombre": "Asistente Negociacion Colectiva",
+      "problema": "Proceso complejo",
+      "beneficio": "Guia por etapas, plazos, documentos necesarios",
+      "ahorro": "Mejor cumplimiento",
+      "afectados": ["Abogados"],
+      "tier": "D"
+    },
+    {
+      "id": 59,
+      "nombre": "Chatbot Web Embebido",
+      "problema": "Sitio web sin atencion",
+      "beneficio": "Widget de chat para sitio del estudio",
+      "ahorro": "Captacion leads",
+      "afectados": ["Visitantes"],
+      "tier": "D"
+    },
+    {
+      "id": 60,
+      "nombre": "Validador RUT Masivo",
+      "problema": "Validacion manual de RUTs",
+      "beneficio": "Valida DV + clasifica persona/empresa",
+      "ahorro": "Cero errores",
+      "afectados": ["Cualquiera"],
+      "tier": "D"
+    },
+    {
+      "id": 61,
+      "nombre": "Generador Escritura Publica",
+      "problema": "Borradores manuales",
+      "beneficio": "Genera borrador para notaria",
+      "ahorro": "2+ hrs/caso",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    },
+    {
+      "id": 62,
+      "nombre": "Generador Acta Directorio",
+      "problema": "Actas de sesiones manuales",
+      "beneficio": "Genera acta con estructura corporativa",
+      "ahorro": "1+ hr/sesion",
+      "afectados": ["Abogados Corp"],
+      "tier": "E"
+    },
+    {
+      "id": 63,
+      "nombre": "Generador Acta Junta",
+      "problema": "Actas de juntas manuales",
+      "beneficio": "Genera acta de junta de accionistas",
+      "ahorro": "1+ hr/sesion",
+      "afectados": ["Abogados Corp"],
+      "tier": "E"
+    },
+    {
+      "id": 64,
+      "nombre": "Calculadora Comisiones",
+      "problema": "Estructuras complejas",
+      "beneficio": "Calcula segun estructura definida",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH"],
+      "tier": "E"
+    },
+    {
+      "id": 65,
+      "nombre": "Generador Declaracion Jurada",
+      "problema": "Declaraciones manuales",
+      "beneficio": "Genera declaracion segun proposito",
+      "ahorro": "30 min/caso",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    },
+    {
+      "id": 66,
+      "nombre": "Calculadora Subsidio Incapacidad",
+      "problema": "Calculo SIL complejo",
+      "beneficio": "Calcula segun remuneracion y dias",
+      "ahorro": "Cero errores",
+      "afectados": ["RRHH"],
+      "tier": "E"
+    },
+    {
+      "id": 67,
+      "nombre": "Generador Transaccion",
+      "problema": "Acuerdos desde cero",
+      "beneficio": "Genera acuerdo transaccional estructurado",
+      "ahorro": "3+ hrs/caso",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    },
+    {
+      "id": 68,
+      "nombre": "Calculadora Plazos Judiciales",
+      "problema": "Plazos habiles vs corridos",
+      "beneficio": "Calcula fecha exacta de vencimiento",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    },
+    {
+      "id": 69,
+      "nombre": "Asistente Consultas Laborales",
+      "problema": "Consultas repetitivas",
+      "beneficio": "Chatbot especializado en laboral",
+      "ahorro": "Filtro inicial",
+      "afectados": ["Clientes"],
+      "tier": "E"
+    },
+    {
+      "id": 70,
+      "nombre": "Asistente Consultas Civiles",
+      "problema": "Consultas repetitivas",
+      "beneficio": "Chatbot especializado en civil",
+      "ahorro": "Filtro inicial",
+      "afectados": ["Clientes"],
+      "tier": "E"
+    },
+    {
+      "id": 71,
+      "nombre": "Generador Embeddings",
+      "problema": "Busqueda semantica ineficiente",
+      "beneficio": "Vectoriza documentos para RAG",
+      "ahorro": "Mejor busqueda",
+      "afectados": ["Sistema"],
+      "tier": "E"
+    },
+    {
+      "id": 72,
+      "nombre": "Monitor Noticias Legales",
+      "problema": "Estar al dia con noticias",
+      "beneficio": "Scraping de noticias juridicas",
+      "ahorro": "Actualizacion diaria",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    },
+    {
+      "id": 73,
+      "nombre": "Backup Documentos",
+      "problema": "Perdida de documentos",
+      "beneficio": "Respaldo automatico diario",
+      "ahorro": "Seguridad datos",
+      "afectados": ["Sistema"],
+      "tier": "E"
+    },
+    {
+      "id": 74,
+      "nombre": "Indexador Documentos Cliente",
+      "problema": "Documentos no buscables",
+      "beneficio": "Indexa para busqueda posterior",
+      "ahorro": "Mejor organizacion",
+      "afectados": ["Sistema"],
+      "tier": "E"
+    },
+    {
+      "id": 75,
+      "nombre": "Calculadora Prescripcion",
+      "problema": "Verificar plazos",
+      "beneficio": "Calcula fecha de prescripcion",
+      "ahorro": "Cero errores",
+      "afectados": ["Abogados"],
+      "tier": "E"
+    }
+  ],
+  "tiers": {
+    "S": { "nombre": "Criticos", "color": "#FF3366", "flujos": 5, "semanas": "1-2" },
+    "A": { "nombre": "Alto Impacto", "color": "#00D4AA", "flujos": 10, "semanas": "3-6" },
+    "B": { "nombre": "Medio-Alto", "color": "#FFB800", "flujos": 15, "semanas": "7-10" },
+    "C": { "nombre": "Medio", "color": "#9966FF", "flujos": 15, "semanas": "11-12" },
+    "D": { "nombre": "Utiles", "color": "#6B7280", "flujos": 15, "semanas": "13-14" },
+    "E": { "nombre": "Complementarios", "color": "#374151", "flujos": 15, "semanas": "Post" }
+  },
+  "metricas": {
+    "inversion_mensual_usd": 200,
+    "ahorro_mensual_clp": 3000000,
+    "roi": "20x",
+    "total_flujos": 75
+  }
+}

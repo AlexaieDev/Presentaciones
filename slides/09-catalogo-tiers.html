@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogo de Tiers - LegalFlow AI</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .catalogo-container {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .catalogo-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .catalogo-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+        }
+
+        .catalogo-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+
+        .tier-card {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            padding: 28px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .tier-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .tier-card.tier-s::before { background: #FF3366; }
+        .tier-card.tier-a::before { background: #00D4AA; }
+        .tier-card.tier-b::before { background: #FFB800; }
+        .tier-card.tier-c::before { background: #9966FF; }
+        .tier-card.tier-d::before { background: #6B7280; }
+        .tier-card.tier-e::before { background: #374151; }
+
+        .tier-card.tier-s:hover { border-color: #FF3366; box-shadow: 0 20px 40px rgba(255, 51, 102, 0.2); }
+        .tier-card.tier-a:hover { border-color: #00D4AA; box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2); }
+        .tier-card.tier-b:hover { border-color: #FFB800; box-shadow: 0 20px 40px rgba(255, 184, 0, 0.2); }
+        .tier-card.tier-c:hover { border-color: #9966FF; box-shadow: 0 20px 40px rgba(153, 102, 255, 0.2); }
+        .tier-card.tier-d:hover { border-color: #6B7280; box-shadow: 0 20px 40px rgba(107, 114, 128, 0.2); }
+        .tier-card.tier-e:hover { border-color: #374151; box-shadow: 0 20px 40px rgba(55, 65, 81, 0.2); }
+
+        .tier-badge-large {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .tier-card.tier-s .tier-badge-large { background: rgba(255, 51, 102, 0.15); color: #FF3366; border: 3px solid #FF3366; }
+        .tier-card.tier-a .tier-badge-large { background: rgba(0, 212, 170, 0.15); color: #00D4AA; border: 3px solid #00D4AA; }
+        .tier-card.tier-b .tier-badge-large { background: rgba(255, 184, 0, 0.15); color: #FFB800; border: 3px solid #FFB800; }
+        .tier-card.tier-c .tier-badge-large { background: rgba(153, 102, 255, 0.15); color: #9966FF; border: 3px solid #9966FF; }
+        .tier-card.tier-d .tier-badge-large { background: rgba(107, 114, 128, 0.15); color: #6B7280; border: 3px solid #6B7280; }
+        .tier-card.tier-e .tier-badge-large { background: rgba(55, 65, 81, 0.15); color: #6B7280; border: 3px solid #374151; }
+
+        .tier-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .tier-description {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .tier-stats {
+            width: 100%;
+            padding: 16px;
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-sm);
+            margin-bottom: 16px;
+        }
+
+        .tier-stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .tier-stat-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .tier-stat-label {
+            font-size: 0.85rem;
+            color: var(--color-text-muted);
+        }
+
+        .tier-stat-value {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .tier-timeline {
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: auto;
+        }
+
+        .tier-card.tier-s .tier-timeline { background: rgba(255, 51, 102, 0.15); color: #FF3366; }
+        .tier-card.tier-a .tier-timeline { background: rgba(0, 212, 170, 0.15); color: #00D4AA; }
+        .tier-card.tier-b .tier-timeline { background: rgba(255, 184, 0, 0.15); color: #FFB800; }
+        .tier-card.tier-c .tier-timeline { background: rgba(153, 102, 255, 0.15); color: #9966FF; }
+        .tier-card.tier-d .tier-timeline { background: rgba(107, 114, 128, 0.15); color: #9CA3AF; }
+        .tier-card.tier-e .tier-timeline { background: rgba(55, 65, 81, 0.15); color: #9CA3AF; }
+
+        /* Timeline visual */
+        .implementation-timeline {
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .timeline-header h3 {
+            font-size: 1.3rem;
+            color: var(--color-text-primary);
+        }
+
+        .timeline-total {
+            font-size: 1rem;
+            color: var(--color-text-muted);
+        }
+
+        .timeline-total span {
+            color: var(--color-cyan);
+            font-weight: 700;
+        }
+
+        .timeline-bar {
+            display: flex;
+            height: 60px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border);
+        }
+
+        .timeline-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+        }
+
+        .timeline-segment.tier-s { background: #FF3366; flex: 2; }
+        .timeline-segment.tier-a { background: #00D4AA; color: #0a0a0f; flex: 4; }
+        .timeline-segment.tier-b { background: #FFB800; color: #0a0a0f; flex: 4; }
+        .timeline-segment.tier-c { background: #9966FF; flex: 2; }
+        .timeline-segment.tier-d { background: #6B7280; flex: 2; }
+        .timeline-segment.tier-e { background: #374151; flex: 2; }
+
+        .timeline-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            padding: 0 10px;
+        }
+
+        .timeline-label {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+        }
+    </style>
+</head>
+<body>
+    <section class="slide" id="slide-9">
+        <div class="slide-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <span>LegalFlow AI</span>
+            </div>
+            <span class="slide-number">09 / 11</span>
+        </div>
+
+        <div class="slide-content">
+            <div class="catalogo-container">
+                <div class="catalogo-header">
+                    <h2>Catalogo de <span class="text-gradient">Productos por Tier</span></h2>
+                    <p>75 flujos organizados por impacto y prioridad de implementacion</p>
+                </div>
+
+                <div class="tiers-grid">
+                    <div class="tier-card tier-s">
+                        <div class="tier-badge-large">S</div>
+                        <h4 class="tier-name">Criticos</h4>
+                        <p class="tier-description">Flujos que evitan perdidas y riesgos eticos</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">5</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Maxima</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Semana 1-2</div>
+                    </div>
+
+                    <div class="tier-card tier-a">
+                        <div class="tier-badge-large">A</div>
+                        <h4 class="tier-name">Alto Impacto</h4>
+                        <p class="tier-description">Mayor ahorro de tiempo mensual</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">10</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Alta</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Semana 3-6</div>
+                    </div>
+
+                    <div class="tier-card tier-b">
+                        <div class="tier-badge-large">B</div>
+                        <h4 class="tier-name">Medio-Alto</h4>
+                        <p class="tier-description">Productividad y eficiencia</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">15</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Media-Alta</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Semana 7-10</div>
+                    </div>
+
+                    <div class="tier-card tier-c">
+                        <div class="tier-badge-large">C</div>
+                        <h4 class="tier-name">Medio</h4>
+                        <p class="tier-description">Eficiencia operacional</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">15</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Media</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Semana 11-12</div>
+                    </div>
+
+                    <div class="tier-card tier-d">
+                        <div class="tier-badge-large">D</div>
+                        <h4 class="tier-name">Utiles</h4>
+                        <p class="tier-description">Complementan el sistema</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">15</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Baja</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Semana 13-14</div>
+                    </div>
+
+                    <div class="tier-card tier-e">
+                        <div class="tier-badge-large">E</div>
+                        <h4 class="tier-name">Complementarios</h4>
+                        <p class="tier-description">Nice to have</p>
+                        <div class="tier-stats">
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Flujos</span>
+                                <span class="tier-stat-value">15</span>
+                            </div>
+                            <div class="tier-stat-row">
+                                <span class="tier-stat-label">Prioridad</span>
+                                <span class="tier-stat-value">Opcional</span>
+                            </div>
+                        </div>
+                        <div class="tier-timeline">Post-impl.</div>
+                    </div>
+                </div>
+
+                <div class="implementation-timeline">
+                    <div class="timeline-header">
+                        <h3>Timeline de Implementacion</h3>
+                        <div class="timeline-total">Implementacion completa: <span>~14 semanas</span></div>
+                    </div>
+                    <div class="timeline-bar">
+                        <div class="timeline-segment tier-s">Tier S</div>
+                        <div class="timeline-segment tier-a">Tier A</div>
+                        <div class="timeline-segment tier-b">Tier B</div>
+                        <div class="timeline-segment tier-c">Tier C</div>
+                        <div class="timeline-segment tier-d">D</div>
+                        <div class="timeline-segment tier-e">E</div>
+                    </div>
+                    <div class="timeline-labels">
+                        <span class="timeline-label">Semana 1</span>
+                        <span class="timeline-label">Semana 6</span>
+                        <span class="timeline-label">Semana 10</span>
+                        <span class="timeline-label">Semana 14+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-footer">
+            <span class="text-muted">Catalogo de Tiers</span>
+            <span class="text-muted">LegalFlow AI</span>
+        </div>
+    </section>
+
+    <!-- Navegacion entre slides -->
+    <nav class="slide-navigation">
+        <a href="08-tabla-flujos.html" class="nav-btn" title="Anterior">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </a>
+        <a href="../index.html" class="nav-btn nav-home" title="Menu">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;margin-right:4px;"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            Menu
+        </a>
+        <span class="nav-indicator">09 / 11</span>
+        <a href="10-inversion-roi.html" class="nav-btn" title="Siguiente">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </a>
+    </nav>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
