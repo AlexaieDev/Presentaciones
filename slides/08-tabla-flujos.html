@@ -213,6 +213,141 @@
             color: var(--color-text-muted);
             margin-top: 2px;
         }
+
+        /* ========== RESPONSIVE STYLES ========== */
+
+        /* Tablet */
+        @media (max-width: 1200px) {
+            .tabla-header h2 {
+                font-size: 2rem;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+
+            .tabla-summary {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Tablet pequeña */
+        @media (max-width: 992px) {
+            .tabla-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .tabla-scroll {
+                max-height: calc(100vh - 450px);
+            }
+
+            .tabla-summary {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* Móvil Grande */
+        @media (max-width: 768px) {
+            .tabla-header h2 {
+                font-size: 1.4rem;
+            }
+
+            .filter-buttons {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 6px;
+            }
+
+            .filter-btn {
+                padding: 6px 8px;
+                font-size: 0.75rem;
+            }
+
+            .tabla-wrapper {
+                margin: 0 -16px;
+                border-radius: 0;
+                border-left: none;
+                border-right: none;
+            }
+
+            .tabla-scroll {
+                max-height: calc(100vh - 380px);
+                overflow-x: auto;
+            }
+
+            table {
+                min-width: 700px;
+            }
+
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.8rem;
+            }
+
+            .flujo-name {
+                font-size: 0.85rem;
+            }
+
+            .tier-badge {
+                padding: 2px 8px;
+                font-size: 0.7rem;
+            }
+
+            .impacto-badge {
+                padding: 2px 6px;
+                font-size: 0.7rem;
+            }
+
+            .afectado-tag {
+                font-size: 0.65rem;
+                padding: 1px 4px;
+            }
+
+            .tabla-summary {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+                margin-top: 16px;
+            }
+
+            .summary-item {
+                padding: 8px;
+            }
+
+            .summary-tier {
+                font-size: 1.1rem;
+            }
+
+            .summary-count {
+                font-size: 0.75rem;
+            }
+        }
+
+        /* Móvil Pequeño */
+        @media (max-width: 480px) {
+            .tabla-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .filter-buttons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .filter-btn {
+                padding: 5px 6px;
+                font-size: 0.7rem;
+            }
+
+            .tabla-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .summary-tier {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>

@@ -227,6 +227,179 @@
             font-size: 0.95rem;
             color: var(--color-text-secondary);
         }
+
+        /* ========== RESPONSIVE STYLES ========== */
+
+        /* Tablet */
+        @media (max-width: 1200px) {
+            .flujos-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .flujos-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Tablet pequeña */
+        @media (max-width: 992px) {
+            .flujos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .flujos-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .tier-info {
+                padding: 16px 20px;
+                gap: 16px;
+                margin-top: 20px;
+            }
+        }
+
+        /* Móvil Grande */
+        @media (max-width: 768px) {
+            .flujos-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .flujos-header h2 .tier-badge {
+                font-size: 0.85rem;
+                padding: 4px 12px;
+                margin-left: 8px;
+            }
+
+            .flujos-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .flujos-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                overflow-y: auto;
+                max-height: calc(100vh - 350px);
+                padding-right: 8px;
+            }
+
+            .flujo-card {
+                padding: 16px;
+            }
+
+            .flujo-card:hover {
+                transform: none;
+            }
+
+            .flujo-icon {
+                width: 44px;
+                height: 44px;
+                margin-bottom: 12px;
+            }
+
+            .flujo-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .flujo-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.85rem;
+            }
+
+            .flujo-title {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+
+            .flujo-problema {
+                font-size: 0.85rem;
+                margin-bottom: 8px;
+            }
+
+            .flujo-chart {
+                height: 60px;
+                margin-bottom: 8px;
+            }
+
+            .flujo-beneficio {
+                font-size: 0.8rem;
+                padding: 8px;
+                margin-bottom: 12px;
+            }
+
+            .flujo-footer {
+                padding-top: 8px;
+            }
+
+            .flujo-ahorro {
+                font-size: 0.75rem;
+            }
+
+            .flujo-afectados {
+                font-size: 0.7rem;
+            }
+
+            .tier-info {
+                flex-direction: column;
+                text-align: center;
+                padding: 16px;
+                gap: 12px;
+                margin-top: 16px;
+            }
+
+            .tier-info-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .tier-info-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+
+            .tier-info-content h4 {
+                font-size: 1rem;
+            }
+
+            .tier-info-content p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Móvil Pequeño */
+        @media (max-width: 480px) {
+            .flujos-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .flujos-header h2 .tier-badge {
+                display: block;
+                margin-left: 0;
+                margin-top: 8px;
+                width: fit-content;
+            }
+
+            .flujos-grid {
+                max-height: calc(100vh - 320px);
+            }
+
+            .flujo-card {
+                padding: 14px;
+            }
+
+            .flujo-title {
+                font-size: 0.95rem;
+            }
+
+            .flujo-chart {
+                height: 50px;
+            }
+        }
     </style>
 </head>
 <body>
