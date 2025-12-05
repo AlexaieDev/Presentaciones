@@ -123,9 +123,35 @@
         .flujo-problema {
             font-size: 0.9rem;
             color: var(--color-text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             line-height: 1.5;
+        }
+
+        .flujo-chart {
+            height: 80px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
             flex: 1;
+        }
+
+        .flujo-chart svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-line {
+            fill: none;
+            stroke: var(--color-red);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .chart-area {
+            fill: url(#chartGradientRed);
+            opacity: 0.3;
         }
 
         .flujo-beneficio {
@@ -229,6 +255,16 @@
                 </div>
 
                 <div class="flujos-grid">
+                    <!-- SVG Gradient Definition -->
+                    <svg style="position:absolute;width:0;height:0;">
+                        <defs>
+                            <linearGradient id="chartGradientRed" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#FF3366;stop-opacity:0.4"/>
+                                <stop offset="100%" style="stop-color:#FF3366;stop-opacity:0"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <!-- Flujo 1 -->
                     <div class="flujo-card">
                         <span class="flujo-number">1</span>
@@ -240,6 +276,12 @@
                         </div>
                         <h4 class="flujo-title">Monitor de Vencimientos</h4>
                         <p class="flujo-problema">Plazos olvidados generan malpractice y perdida de casos</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,70 L25,55 L50,60 L75,40 L100,45 L125,25 L150,30 L175,15 L200,10 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,70 L25,55 L50,60 L75,40 L100,45 L125,25 L150,30 L175,15 L200,10"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Alertas automaticas de prescripciones, audiencias y contratos</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">CRITICO</span>
@@ -259,6 +301,12 @@
                         </div>
                         <h4 class="flujo-title">Detector Conflictos de Interes</h4>
                         <p class="flujo-problema">Verificacion manual contra base de clientes es lenta</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,65 L30,50 L60,55 L90,35 L120,40 L150,20 L180,25 L200,12 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,65 L30,50 L60,55 L90,35 L120,40 L150,20 L180,25 L200,12"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Detecta automaticamente si contraparte es o fue cliente</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">ETICO</span>
@@ -276,6 +324,12 @@
                         </div>
                         <h4 class="flujo-title">Chatbot Legal 24/7 Telegram</h4>
                         <p class="flujo-problema">Consultas fuera de horario quedan sin respuesta</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,75 L40,60 L80,50 L120,35 L160,20 L200,10 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,75 L40,60 L80,50 L120,35 L160,20 L200,10"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Atencion inmediata con IA entrenada en ley chilena</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">50+ hrs/mes</span>
@@ -293,6 +347,12 @@
                         </div>
                         <h4 class="flujo-title">Chatbot WhatsApp Business</h4>
                         <p class="flujo-problema">Clientes prefieren WhatsApp como canal de comunicacion</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,72 L35,58 L70,48 L105,35 L140,25 L175,15 L200,8 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,72 L35,58 L70,48 L105,35 L140,25 L175,15 L200,8"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Canal preferido de clientes, mismo motor que Telegram</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">50+ hrs/mes</span>
@@ -313,6 +373,12 @@
                         </div>
                         <h4 class="flujo-title">Procesador Finiquitos Masivos</h4>
                         <p class="flujo-problema">Despidos colectivos toman dias de trabajo manual</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,68 L30,55 L60,45 L90,38 L120,28 L150,18 L180,12 L200,8 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,68 L30,55 L60,45 L90,38 L120,28 L150,18 L180,12 L200,8"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Carga lista, calcula todo y genera documentos automaticamente</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">20+ hrs/evento</span>

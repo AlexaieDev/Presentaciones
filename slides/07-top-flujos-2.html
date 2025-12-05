@@ -123,9 +123,35 @@
         .flujo-problema {
             font-size: 0.9rem;
             color: var(--color-text-muted);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             line-height: 1.5;
+        }
+
+        .flujo-chart {
+            height: 80px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
             flex: 1;
+        }
+
+        .flujo-chart svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .chart-line {
+            fill: none;
+            stroke: var(--color-cyan);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .chart-area {
+            fill: url(#chartGradient);
+            opacity: 0.3;
         }
 
         .flujo-beneficio {
@@ -249,6 +275,16 @@
                 </div>
 
                 <div class="flujos-grid">
+                    <!-- SVG Gradient Definition -->
+                    <svg style="position:absolute;width:0;height:0;">
+                        <defs>
+                            <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00D4AA;stop-opacity:0.4"/>
+                                <stop offset="100%" style="stop-color:#00D4AA;stop-opacity:0"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
                     <!-- Flujo 6 -->
                     <div class="flujo-card">
                         <span class="flujo-number">6</span>
@@ -260,6 +296,12 @@
                         </div>
                         <h4 class="flujo-title">Sistema Cobranzas Masivas</h4>
                         <p class="flujo-problema">Cartas de cobranza se redactan una por una</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,70 L20,60 L40,65 L60,45 L80,50 L100,35 L120,40 L140,25 L160,30 L180,15 L200,10 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,70 L20,60 L40,65 L60,45 L80,50 L100,35 L120,40 L140,25 L160,30 L180,15 L200,10"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Genera por etapa, calcula intereses y envia automaticamente</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">25+ hrs/mes</span>
@@ -278,6 +320,12 @@
                         </div>
                         <h4 class="flujo-title">Seguimiento Auto PJUD</h4>
                         <p class="flujo-problema">Revisar estado de causas manualmente cada dia</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,65 L25,55 L50,60 L75,40 L100,45 L125,30 L150,35 L175,20 L200,15 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,65 L25,55 L50,60 L75,40 L100,45 L125,30 L150,35 L175,20 L200,15"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Monitorea cada 6hrs y notifica cambios de estado</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">10+ hrs/mes</span>
@@ -296,6 +344,12 @@
                         </div>
                         <h4 class="flujo-title">Calculadora de Finiquito</h4>
                         <p class="flujo-problema">Calculos manuales generan errores costosos</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,75 L30,70 L60,55 L90,50 L120,35 L150,25 L180,15 L200,10 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,75 L30,70 L60,55 L90,50 L120,35 L150,25 L180,15 L200,10"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Antiguedad + indemnizacion + vacaciones + descuentos</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">Cero errores</span>
@@ -316,6 +370,12 @@
                         </div>
                         <h4 class="flujo-title">Generador Contrato Trabajo</h4>
                         <p class="flujo-problema">Redaccion manual repetitiva de contratos</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,70 L40,60 L80,45 L120,30 L160,20 L200,10 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,70 L40,60 L80,45 L120,30 L160,20 L200,10"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">De datos a contrato completo segun tipo automaticamente</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">15+ hrs/mes</span>
@@ -334,6 +394,12 @@
                         </div>
                         <h4 class="flujo-title">Busqueda Hibrida RAG</h4>
                         <p class="flujo-problema">Localizar articulos relevantes toma horas</p>
+                        <div class="flujo-chart">
+                            <svg viewBox="0 0 200 80" preserveAspectRatio="none">
+                                <path class="chart-area" d="M0,68 L35,58 L70,48 L105,38 L140,28 L175,18 L200,12 L200,80 L0,80 Z"/>
+                                <path class="chart-line" d="M0,68 L35,58 L70,48 L105,38 L140,28 L175,18 L200,12"/>
+                            </svg>
+                        </div>
                         <div class="flujo-beneficio">Busqueda semantica + keywords en legislacion chilena</div>
                         <div class="flujo-footer">
                             <span class="flujo-ahorro">10+ hrs/mes</span>
