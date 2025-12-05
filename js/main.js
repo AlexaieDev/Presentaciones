@@ -3,10 +3,30 @@
    ============================================= */
 
 document.addEventListener('DOMContentLoaded', function() {
+    initAnimatedBackground();
     initNavigation();
     initAnimations();
     initKeyboardNav();
 });
+
+// Inicializar fondo animado con degradados
+function initAnimatedBackground() {
+    const slides = document.querySelectorAll('.slide');
+
+    slides.forEach(slide => {
+        // Crear contenedor principal del fondo animado
+        const animatedBg = document.createElement('div');
+        animatedBg.className = 'animated-bg';
+
+        // Crear burbuja extra (naranja)
+        const extraBubble = document.createElement('div');
+        extraBubble.className = 'animated-bg-extra';
+
+        // Insertar al inicio del slide
+        slide.insertBefore(animatedBg, slide.firstChild);
+        slide.insertBefore(extraBubble, slide.firstChild);
+    });
+}
 
 // Variables globales
 let currentSlide = 0;
