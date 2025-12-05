@@ -29,13 +29,13 @@
         }
 
         .filter-btn {
-            padding: 8px 20px;
+            padding: 8px 16px;
             border: 2px solid var(--color-border);
             background: transparent;
             color: var(--color-text-secondary);
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: all 0.2s ease;
         }
@@ -59,6 +59,10 @@
         .filter-btn[data-filter="B"].active { background: #FFB800; border-color: #FFB800; }
         .filter-btn[data-filter="C"] { border-color: #9966FF; }
         .filter-btn[data-filter="C"].active { background: #9966FF; border-color: #9966FF; }
+        .filter-btn[data-filter="D"] { border-color: #6B7280; }
+        .filter-btn[data-filter="D"].active { background: #6B7280; border-color: #6B7280; }
+        .filter-btn[data-filter="E"] { border-color: #374151; }
+        .filter-btn[data-filter="E"].active { background: #374151; border-color: #374151; color: #b0b0c0; }
 
         .tabla-wrapper {
             flex: 1;
@@ -70,63 +74,9 @@
 
         .tabla-scroll {
             height: 100%;
-            max-height: calc(100vh - 450px);
+            max-height: calc(100vh - 400px);
             overflow-y: auto;
             padding-bottom: 20px;
-        }
-
-        /* Navegacion entre slides */
-        .slide-navigation {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: var(--color-bg-card);
-            padding: 12px 24px;
-            border-radius: 50px;
-            border: 1px solid var(--color-border);
-            z-index: 1000;
-        }
-
-        .nav-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: transparent;
-            border: 2px solid var(--color-border);
-            border-radius: 50%;
-            color: var(--color-text-secondary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-            text-decoration: none;
-        }
-
-        .nav-btn:hover {
-            border-color: var(--color-cyan);
-            color: var(--color-cyan);
-            background: rgba(0, 212, 170, 0.1);
-        }
-
-        .nav-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: currentColor;
-        }
-
-        .nav-indicator {
-            font-size: 0.9rem;
-            color: var(--color-text-muted);
-        }
-
-        .nav-home {
-            padding: 8px 16px;
-            border-radius: 20px;
-            width: auto;
         }
 
         table {
@@ -142,9 +92,9 @@
 
         th {
             background: var(--color-bg-card);
-            padding: 16px 20px;
+            padding: 14px 16px;
             text-align: left;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -153,13 +103,13 @@
         }
 
         th:first-child {
-            width: 50px;
+            width: 40px;
         }
 
         td {
-            padding: 14px 20px;
+            padding: 10px 16px;
             border-bottom: 1px solid var(--color-border);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--color-text-secondary);
             vertical-align: middle;
         }
@@ -175,12 +125,12 @@
 
         .tier-badge {
             display: inline-block;
-            padding: 4px 12px;
+            padding: 3px 10px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 700;
             text-align: center;
-            min-width: 45px;
+            min-width: 40px;
         }
 
         .tier-S { background: #FF3366; color: white; }
@@ -192,9 +142,9 @@
 
         .impacto-badge {
             display: inline-block;
-            padding: 4px 10px;
+            padding: 3px 8px;
             border-radius: 4px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
         }
 
@@ -206,12 +156,12 @@
         .afectados-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 4px;
         }
 
         .afectado-tag {
-            font-size: 0.75rem;
-            padding: 2px 8px;
+            font-size: 0.7rem;
+            padding: 2px 6px;
             background: var(--color-bg-secondary);
             border-radius: 4px;
             color: var(--color-text-muted);
@@ -221,14 +171,14 @@
         .tabla-summary {
             display: grid;
             grid-template-columns: repeat(6, 1fr);
-            gap: 16px;
-            margin-top: 24px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .summary-item {
             background: var(--color-bg-card);
             border-radius: var(--radius-sm);
-            padding: 16px;
+            padding: 12px;
             text-align: center;
             border-top: 3px solid;
         }
@@ -241,9 +191,9 @@
         .summary-item.tier-e { border-color: #374151; }
 
         .summary-tier {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 800;
-            margin-bottom: 4px;
+            margin-bottom: 2px;
         }
 
         .summary-item.tier-s .summary-tier { color: #FF3366; }
@@ -251,17 +201,17 @@
         .summary-item.tier-b .summary-tier { color: #FFB800; }
         .summary-item.tier-c .summary-tier { color: #9966FF; }
         .summary-item.tier-d .summary-tier { color: #6B7280; }
-        .summary-item.tier-e .summary-tier { color: #374151; }
+        .summary-item.tier-e .summary-tier { color: #4B5563; }
 
         .summary-count {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--color-text-muted);
         }
 
         .summary-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             color: var(--color-text-muted);
-            margin-top: 4px;
+            margin-top: 2px;
         }
     </style>
 </head>
@@ -291,6 +241,8 @@
                         <button class="filter-btn" data-filter="A" onclick="filterTable('A')">Tier A</button>
                         <button class="filter-btn" data-filter="B" onclick="filterTable('B')">Tier B</button>
                         <button class="filter-btn" data-filter="C" onclick="filterTable('C')">Tier C</button>
+                        <button class="filter-btn" data-filter="D" onclick="filterTable('D')">Tier D</button>
+                        <button class="filter-btn" data-filter="E" onclick="filterTable('E')">Tier E</button>
                     </div>
                 </div>
 
@@ -308,6 +260,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <!-- TIER S - 5 flujos -->
                                 <tr data-tier="S">
                                     <td>1</td>
                                     <td class="flujo-name">Monitor de Vencimientos</td>
@@ -348,6 +301,7 @@
                                     <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Abogados</span></div></td>
                                     <td><span class="tier-badge tier-S">S</span></td>
                                 </tr>
+                                <!-- TIER A - 10 flujos -->
                                 <tr data-tier="A">
                                     <td>6</td>
                                     <td class="flujo-name">Sistema Cobranzas Masivas</td>
@@ -404,6 +358,31 @@
                                     <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">RRHH</span></div></td>
                                     <td><span class="tier-badge tier-A">A</span></td>
                                 </tr>
+                                <tr data-tier="A">
+                                    <td>13</td>
+                                    <td class="flujo-name">Informes Mensuales Auto</td>
+                                    <td>Informes de gestion manuales</td>
+                                    <td><span class="impacto-badge impacto-alto">15+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>14</td>
+                                    <td class="flujo-name">Resumidor de Expedientes</td>
+                                    <td>Leer expedientes largos</td>
+                                    <td><span class="impacto-badge impacto-alto">8+ hrs/exp</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <tr data-tier="A">
+                                    <td>15</td>
+                                    <td class="flujo-name">Comparador Versiones Contratos</td>
+                                    <td>Comparar versiones manual</td>
+                                    <td><span class="impacto-badge impacto-alto">5+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-A">A</span></td>
+                                </tr>
+                                <!-- TIER B - 15 flujos -->
                                 <tr data-tier="B">
                                     <td>16</td>
                                     <td class="flujo-name">Intake Clientes Nuevos</td>
@@ -421,6 +400,22 @@
                                     <td><span class="tier-badge tier-B">B</span></td>
                                 </tr>
                                 <tr data-tier="B">
+                                    <td>18</td>
+                                    <td class="flujo-name">Calculadora Horas Extras</td>
+                                    <td>Calculo complejo de recargos</td>
+                                    <td><span class="impacto-badge impacto-medio">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>19</td>
+                                    <td class="flujo-name">Extractor Datos Demandas PDF</td>
+                                    <td>Transcribir datos manual</td>
+                                    <td><span class="impacto-badge impacto-medio">6+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Asistentes</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
                                     <td>20</td>
                                     <td class="flujo-name">Generador Demanda Laboral</td>
                                     <td>Redaccion desde cero</td>
@@ -428,6 +423,87 @@
                                     <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
                                     <td><span class="tier-badge tier-B">B</span></td>
                                 </tr>
+                                <tr data-tier="B">
+                                    <td>21</td>
+                                    <td class="flujo-name">Generador Contestacion</td>
+                                    <td>Redaccion defensiva manual</td>
+                                    <td><span class="impacto-badge impacto-medio">10+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>22</td>
+                                    <td class="flujo-name">Conciliador Liquidaciones</td>
+                                    <td>Errores en liquidaciones</td>
+                                    <td><span class="impacto-badge impacto-medio">Evita demandas</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Contador</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>23</td>
+                                    <td class="flujo-name">Informe Horas Trabajadas</td>
+                                    <td>Reportes para facturacion</td>
+                                    <td><span class="impacto-badge impacto-medio">6+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Admin</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>24</td>
+                                    <td class="flujo-name">Programador Audiencias</td>
+                                    <td>Coordinacion manual</td>
+                                    <td><span class="impacto-badge impacto-medio">4+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Asistentes</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>25</td>
+                                    <td class="flujo-name">Calculadora Pension Alimentos</td>
+                                    <td>Estimacion compleja</td>
+                                    <td><span class="impacto-badge impacto-medio">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados Familia</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>26</td>
+                                    <td class="flujo-name">Generador Finiquito Individual</td>
+                                    <td>Redaccion manual finiquitos</td>
+                                    <td><span class="impacto-badge impacto-medio">3+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>27</td>
+                                    <td class="flujo-name">Monitor Cambios Legislativos</td>
+                                    <td>Desconocer cambios en leyes</td>
+                                    <td><span class="impacto-badge impacto-medio">Actualizacion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>28</td>
+                                    <td class="flujo-name">Generador Recurso Proteccion</td>
+                                    <td>Urgencia + complejidad</td>
+                                    <td><span class="impacto-badge impacto-medio">6+ hrs/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>29</td>
+                                    <td class="flujo-name">Validador Contratos Laborales</td>
+                                    <td>Revision manual contratos</td>
+                                    <td><span class="impacto-badge impacto-medio">Evita nulidades</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <tr data-tier="B">
+                                    <td>30</td>
+                                    <td class="flujo-name">Cotizaciones Honorarios</td>
+                                    <td>Cotizar toma tiempo</td>
+                                    <td><span class="impacto-badge impacto-medio">3+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-B">B</span></td>
+                                </tr>
+                                <!-- TIER C - 15 flujos -->
                                 <tr data-tier="C">
                                     <td>31</td>
                                     <td class="flujo-name">Calculadora Dano Moral</td>
@@ -437,12 +513,358 @@
                                     <td><span class="tier-badge tier-C">C</span></td>
                                 </tr>
                                 <tr data-tier="C">
+                                    <td>32</td>
+                                    <td class="flujo-name">Calculadora Intereses Legales</td>
+                                    <td>Calculo manual intereses</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Contador</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
                                     <td>33</td>
                                     <td class="flujo-name">Generador Minutas Reunion</td>
                                     <td>Minutas manuales</td>
                                     <td><span class="impacto-badge impacto-bajo">4+ hrs/mes</span></td>
                                     <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Asistentes</span></div></td>
                                     <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>34</td>
+                                    <td class="flujo-name">Validador Clausulas Abusivas</td>
+                                    <td>Detectar clausulas abusivas</td>
+                                    <td><span class="impacto-badge impacto-bajo">Proteccion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>35</td>
+                                    <td class="flujo-name">Generador Anexo Contrato</td>
+                                    <td>Modificaciones contractuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">2+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>36</td>
+                                    <td class="flujo-name">Calculadora Reajuste IPC</td>
+                                    <td>Actualizacion manual montos</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">Contador</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>37</td>
+                                    <td class="flujo-name">Generador Recurso Nulidad</td>
+                                    <td>Complejidad tecnica</td>
+                                    <td><span class="impacto-badge impacto-bajo">8+ hrs/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>38</td>
+                                    <td class="flujo-name">Asistente Preparador Audiencias</td>
+                                    <td>Preparacion desorganizada</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor prep.</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>39</td>
+                                    <td class="flujo-name">Calculadora Indemn. Despido</td>
+                                    <td>Multiples variables</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>40</td>
+                                    <td class="flujo-name">Generador Certificados Trabajo</td>
+                                    <td>Certificados manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">2+ hrs/mes</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>41</td>
+                                    <td class="flujo-name">Validador Prescripcion Accion</td>
+                                    <td>Verificar si accion prescribio</td>
+                                    <td><span class="impacto-badge impacto-bajo">Evita rechazos</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>42</td>
+                                    <td class="flujo-name">Ingestion BCN Legislacion</td>
+                                    <td>Base legal desactualizada</td>
+                                    <td><span class="impacto-badge impacto-bajo">Base actual</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Sistema</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>43</td>
+                                    <td class="flujo-name">Generador Patrocinio y Poder</td>
+                                    <td>Redaccion manual</td>
+                                    <td><span class="impacto-badge impacto-bajo">1+ hr/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>44</td>
+                                    <td class="flujo-name">Calculadora Costas Judiciales</td>
+                                    <td>Estimacion manual costas</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor presup.</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <tr data-tier="C">
+                                    <td>45</td>
+                                    <td class="flujo-name">Asistente Mediacion Laboral</td>
+                                    <td>Preparacion mediaciones</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor negoc.</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-C">C</span></td>
+                                </tr>
+                                <!-- TIER D - 15 flujos -->
+                                <tr data-tier="D">
+                                    <td>46</td>
+                                    <td class="flujo-name">Generador Carta Amonestacion</td>
+                                    <td>Redaccion manual</td>
+                                    <td><span class="impacto-badge impacto-bajo">1+ hr/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>47</td>
+                                    <td class="flujo-name">Calculadora Vacaciones</td>
+                                    <td>Dias proporcionales</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>48</td>
+                                    <td class="flujo-name">Validador Competencia Tribunal</td>
+                                    <td>Determinar tribunal</td>
+                                    <td><span class="impacto-badge impacto-bajo">Evita incomp.</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>49</td>
+                                    <td class="flujo-name">Generador Reglamento Interno</td>
+                                    <td>Crear desde cero</td>
+                                    <td><span class="impacto-badge impacto-bajo">20+ hrs/proy</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>50</td>
+                                    <td class="flujo-name">Gestor Casos CRUD</td>
+                                    <td>Sistema casos manual</td>
+                                    <td><span class="impacto-badge impacto-bajo">Organizacion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Todo estudio</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>51</td>
+                                    <td class="flujo-name">Calculadora Gratificacion</td>
+                                    <td>Art. 47 vs 50 confuso</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span><span class="afectado-tag">Contador</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>52</td>
+                                    <td class="flujo-name">Router Multicanal</td>
+                                    <td>Canales sin unificar</td>
+                                    <td><span class="impacto-badge impacto-bajo">Centralizado</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Sistema</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>53</td>
+                                    <td class="flujo-name">Validador Requisitos Demanda</td>
+                                    <td>Checklist manual</td>
+                                    <td><span class="impacto-badge impacto-bajo">Evita rechazos</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>54</td>
+                                    <td class="flujo-name">Generador Poder Simple</td>
+                                    <td>Poderes manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">30 min/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>55</td>
+                                    <td class="flujo-name">Resumen Ejecutivo Semanal</td>
+                                    <td>Falta visibilidad gestion</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor control</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Socios</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>56</td>
+                                    <td class="flujo-name">Calculadora Semana Corrida</td>
+                                    <td>Calculo complejo variable</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>57</td>
+                                    <td class="flujo-name">Generador Acta Comparendo</td>
+                                    <td>Actas manuales IT</td>
+                                    <td><span class="impacto-badge impacto-bajo">1+ hr/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>58</td>
+                                    <td class="flujo-name">Asistente Negociacion Colectiva</td>
+                                    <td>Proceso complejo</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cumplimiento</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>59</td>
+                                    <td class="flujo-name">Chatbot Web Embebido</td>
+                                    <td>Sitio web sin atencion</td>
+                                    <td><span class="impacto-badge impacto-bajo">Leads</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Visitantes</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <tr data-tier="D">
+                                    <td>60</td>
+                                    <td class="flujo-name">Validador RUT Masivo</td>
+                                    <td>Validacion manual RUTs</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Cualquiera</span></div></td>
+                                    <td><span class="tier-badge tier-D">D</span></td>
+                                </tr>
+                                <!-- TIER E - 15 flujos -->
+                                <tr data-tier="E">
+                                    <td>61</td>
+                                    <td class="flujo-name">Generador Escritura Publica</td>
+                                    <td>Borradores manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">2+ hrs/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>62</td>
+                                    <td class="flujo-name">Generador Acta Directorio</td>
+                                    <td>Actas sesiones manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">1+ hr/sesion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados Corp</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>63</td>
+                                    <td class="flujo-name">Generador Acta Junta</td>
+                                    <td>Actas juntas manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">1+ hr/sesion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados Corp</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>64</td>
+                                    <td class="flujo-name">Calculadora Comisiones</td>
+                                    <td>Estructuras complejas</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>65</td>
+                                    <td class="flujo-name">Generador Declaracion Jurada</td>
+                                    <td>Declaraciones manuales</td>
+                                    <td><span class="impacto-badge impacto-bajo">30 min/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>66</td>
+                                    <td class="flujo-name">Calculadora Subsidio Incapacidad</td>
+                                    <td>Calculo SIL complejo</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">RRHH</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>67</td>
+                                    <td class="flujo-name">Generador Transaccion</td>
+                                    <td>Acuerdos desde cero</td>
+                                    <td><span class="impacto-badge impacto-bajo">3+ hrs/caso</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>68</td>
+                                    <td class="flujo-name">Calculadora Plazos Judiciales</td>
+                                    <td>Plazos habiles vs corridos</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>69</td>
+                                    <td class="flujo-name">Asistente Consultas Laborales</td>
+                                    <td>Consultas repetitivas</td>
+                                    <td><span class="impacto-badge impacto-bajo">Filtro inicial</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>70</td>
+                                    <td class="flujo-name">Asistente Consultas Civiles</td>
+                                    <td>Consultas repetitivas</td>
+                                    <td><span class="impacto-badge impacto-bajo">Filtro inicial</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Clientes</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>71</td>
+                                    <td class="flujo-name">Generador Embeddings</td>
+                                    <td>Busqueda semantica ineficiente</td>
+                                    <td><span class="impacto-badge impacto-bajo">Mejor busqueda</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Sistema</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>72</td>
+                                    <td class="flujo-name">Monitor Noticias Legales</td>
+                                    <td>Estar al dia con noticias</td>
+                                    <td><span class="impacto-badge impacto-bajo">Actualizacion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>73</td>
+                                    <td class="flujo-name">Backup Documentos</td>
+                                    <td>Perdida de documentos</td>
+                                    <td><span class="impacto-badge impacto-bajo">Seguridad</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Sistema</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>74</td>
+                                    <td class="flujo-name">Indexador Documentos Cliente</td>
+                                    <td>Documentos no buscables</td>
+                                    <td><span class="impacto-badge impacto-bajo">Organizacion</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Sistema</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
+                                </tr>
+                                <tr data-tier="E">
+                                    <td>75</td>
+                                    <td class="flujo-name">Calculadora Prescripcion</td>
+                                    <td>Verificar plazos</td>
+                                    <td><span class="impacto-badge impacto-bajo">Cero errores</span></td>
+                                    <td><div class="afectados-list"><span class="afectado-tag">Abogados</span></div></td>
+                                    <td><span class="tier-badge tier-E">E</span></td>
                                 </tr>
                             </tbody>
                         </table>
