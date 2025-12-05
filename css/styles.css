@@ -107,98 +107,92 @@ body {
     content: '';
     position: absolute;
     border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.6;
-    animation: float 15s ease-in-out infinite;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
 }
 
 /* Burbuja roja/naranja - esquina superior izquierda */
 .slide .animated-bg::before {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(255, 80, 50, 0.8) 0%, rgba(255, 51, 102, 0.5) 40%, transparent 70%);
-    top: -200px;
-    left: -150px;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 60, 40, 1) 0%, rgba(255, 51, 102, 0.7) 30%, rgba(255, 80, 50, 0.3) 50%, transparent 70%);
+    top: -300px;
+    left: -200px;
+    opacity: 0.85;
     animation-name: floatRed;
 }
 
 /* Burbuja verde/cyan - esquina inferior derecha */
 .slide .animated-bg::after {
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, rgba(0, 212, 170, 0.7) 0%, rgba(0, 180, 150, 0.4) 40%, transparent 70%);
-    bottom: -250px;
-    right: -200px;
+    width: 900px;
+    height: 900px;
+    background: radial-gradient(circle, rgba(0, 212, 170, 1) 0%, rgba(0, 200, 160, 0.6) 30%, rgba(0, 180, 150, 0.3) 50%, transparent 70%);
+    bottom: -350px;
+    right: -300px;
+    opacity: 0.8;
     animation-name: floatCyan;
-    animation-delay: -7s;
+    animation-delay: -10s;
 }
 
-/* Tercera burbuja adicional via pseudo-elemento en el contenedor */
+/* Tercera burbuja adicional - naranja central */
 .slide .animated-bg-extra {
     position: absolute;
-    width: 400px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
-    filter: blur(100px);
-    opacity: 0.4;
-    background: radial-gradient(circle, rgba(255, 150, 50, 0.6) 0%, rgba(255, 100, 80, 0.3) 50%, transparent 70%);
-    top: 30%;
-    left: 20%;
-    animation: floatOrange 20s ease-in-out infinite;
+    filter: blur(90px);
+    opacity: 0.6;
+    background: radial-gradient(circle, rgba(255, 120, 50, 0.9) 0%, rgba(255, 80, 60, 0.5) 40%, transparent 70%);
+    top: 20%;
+    left: 10%;
+    animation: floatOrange 25s ease-in-out infinite;
     pointer-events: none;
+    z-index: 0;
 }
 
 /* Animaciones de flotacion */
 @keyframes floatRed {
     0%, 100% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.6;
     }
     25% {
-        transform: translate(50px, 30px) scale(1.1);
-        opacity: 0.7;
+        transform: translate(80px, 50px) scale(1.15);
     }
     50% {
-        transform: translate(30px, 60px) scale(0.95);
-        opacity: 0.5;
+        transform: translate(50px, 100px) scale(1);
     }
     75% {
-        transform: translate(-20px, 40px) scale(1.05);
-        opacity: 0.65;
+        transform: translate(-30px, 60px) scale(1.1);
     }
 }
 
 @keyframes floatCyan {
     0%, 100% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.6;
     }
     25% {
-        transform: translate(-40px, -30px) scale(1.05);
-        opacity: 0.5;
+        transform: translate(-60px, -50px) scale(1.1);
     }
     50% {
-        transform: translate(-60px, -50px) scale(1.1);
-        opacity: 0.7;
+        transform: translate(-100px, -80px) scale(1.2);
     }
     75% {
-        transform: translate(-20px, -20px) scale(0.95);
-        opacity: 0.55;
+        transform: translate(-40px, -30px) scale(1);
     }
 }
 
 @keyframes floatOrange {
     0%, 100% {
         transform: translate(0, 0) scale(1);
-        opacity: 0.4;
+        opacity: 0.6;
     }
     33% {
-        transform: translate(80px, -40px) scale(1.15);
-        opacity: 0.5;
+        transform: translate(150px, -60px) scale(1.2);
+        opacity: 0.7;
     }
     66% {
-        transform: translate(-60px, 60px) scale(0.9);
-        opacity: 0.35;
+        transform: translate(-80px, 80px) scale(0.9);
+        opacity: 0.5;
     }
 }
 
