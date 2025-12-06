@@ -347,68 +347,73 @@
 
         /* Móvil Grande */
         @media (max-width: 768px) {
+            .slide {
+                padding: 12px !important;
+            }
+
             .hero-container {
-                padding: 0 16px;
+                padding: 0;
+                width: 100%;
             }
 
             .hero-logo {
                 gap: 12px;
-                margin-bottom: 24px;
+                margin-bottom: 20px;
             }
 
             .hero-logo-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 24px;
+                width: 45px;
+                height: 45px;
+                font-size: 22px;
             }
 
             .hero-title {
-                font-size: 1.8rem;
-                margin-bottom: 16px;
+                font-size: 1.6rem;
+                margin-bottom: 12px;
             }
 
             .hero-title .highlight {
-                font-size: 2.2rem;
+                font-size: 1.9rem;
             }
 
             .hero-subtitle {
-                font-size: 1rem;
-                margin-bottom: 30px;
-                padding: 0 10px;
+                font-size: 0.95rem;
+                margin-bottom: 24px;
+                padding: 0;
             }
 
             .hero-stats {
                 flex-direction: column;
-                gap: 16px;
+                gap: 12px;
                 width: 100%;
-                margin-bottom: 30px;
+                margin-bottom: 24px;
             }
 
             .hero-stat {
                 flex: none;
                 max-width: 100%;
                 width: 100%;
-                padding: 16px 20px;
+                padding: 14px 16px;
             }
 
             .hero-stat-value {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
             .hero-stat-label {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .hero-badge {
-                font-size: 0.85rem;
-                padding: 8px 16px;
+                font-size: 0.8rem;
+                padding: 8px 14px;
             }
 
             .hero-cta {
                 flex-direction: column;
                 width: 100%;
-                padding: 0 20px;
-                gap: 12px;
+                padding: 0;
+                gap: 10px;
             }
 
             .hero-cta .btn {
@@ -423,33 +428,48 @@
                 width: 40px;
                 height: 40px;
                 bottom: 20px;
-                right: 20px;
+                right: 12px;
             }
 
             .circuit-lines {
                 display: none;
             }
 
-            /* Menu de slides responsive */
+            /* Menu de slides responsive - usar todo el ancho */
             .slide-menu div[style*="grid-template-columns"] {
-                grid-template-columns: repeat(2, 1fr) !important;
-                padding: 0 16px;
+                grid-template-columns: 1fr !important;
+                padding: 0;
+                width: 100%;
+                max-width: 100% !important;
             }
 
             .slide-menu h2 {
-                font-size: 1.5rem;
-                margin-bottom: 20px !important;
+                font-size: 1.4rem;
+                margin-bottom: 16px !important;
+            }
+
+            .slide-menu .btn {
+                padding: 14px 16px;
+                font-size: 0.95rem;
             }
         }
 
         /* Móvil Pequeño */
         @media (max-width: 480px) {
+            .slide {
+                padding: 10px !important;
+            }
+
             .hero-title {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
 
             .hero-title .highlight {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
+            }
+
+            .hero-stat {
+                padding: 12px 14px;
             }
 
             .hero-stat-value {
@@ -457,12 +477,12 @@
             }
 
             .hero-subtitle {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
 
-            /* Menu de slides una columna */
-            .slide-menu div[style*="grid-template-columns"] {
-                grid-template-columns: 1fr !important;
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 6px 12px;
             }
         }
     </style>
