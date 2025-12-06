@@ -901,34 +901,50 @@ tr:hover td {
 /* Móvil Grande */
 @media (max-width: 768px) {
     :root {
-        font-size: 14px;
+        font-size: 17px;
     }
 
     .slide {
-        padding: 12px;
-        padding-bottom: 80px;
+        padding: 14px;
+        padding-bottom: 65px;
     }
 
-    /* Tipografía móvil */
+    .slide-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .slide-footer {
+        display: none; /* Ocultar footer en móvil para ganar espacio */
+    }
+
+    .slide-header {
+        margin-bottom: 14px;
+    }
+
+    /* Tipografía móvil - 20% MÁS GRANDE */
     h1 {
-        font-size: 2rem;
-        line-height: 1.3;
+        font-size: 2.1rem;
+        line-height: 1.2;
     }
 
     h2 {
-        font-size: 1.75rem;
+        font-size: 1.8rem;
+        line-height: 1.25;
     }
 
     h3 {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
     }
 
     h4 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
     }
 
     /* Grids a una columna */
@@ -1104,28 +1120,40 @@ tr:hover td {
 /* Móvil Pequeño */
 @media (max-width: 480px) {
     :root {
-        font-size: 13px;
+        font-size: 16px;
     }
 
     .slide {
-        padding: 10px;
-        padding-bottom: 70px;
+        padding: 12px;
+        padding-bottom: 60px;
+    }
+
+    .slide-header {
+        margin-bottom: 12px;
     }
 
     h1 {
-        font-size: 1.6rem;
+        font-size: 1.9rem;
     }
 
     h2 {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 
     h3 {
-        font-size: 1.2rem;
+        font-size: 1.35rem;
+    }
+
+    h4 {
+        font-size: 1.15rem;
+    }
+
+    p {
+        font-size: 1.05rem;
     }
 
     .stat-number {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
     }
 
     /* Tabla scroll horizontal con indicador */

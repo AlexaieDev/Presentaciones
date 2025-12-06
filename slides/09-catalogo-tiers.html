@@ -262,19 +262,19 @@
             }
         }
 
-        /* Móvil Grande */
+        /* Móvil Grande - 20% más grande */
         @media (max-width: 768px) {
             .catalogo-header h2 {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 margin-bottom: 8px;
             }
 
             .catalogo-header p {
-                font-size: 0.9rem;
+                font-size: 1.15rem;
             }
 
             .catalogo-header {
-                margin-bottom: 12px;
+                margin-bottom: 14px;
             }
 
             /* Contenedor con indicador de scroll */
@@ -288,9 +288,9 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: 40px;
-                height: calc(100% - 12px);
-                background: linear-gradient(to right, transparent, rgba(10, 10, 15, 0.9));
+                width: 30px;
+                height: calc(100% - 24px);
+                background: linear-gradient(to right, transparent, rgba(10, 10, 15, 0.95));
                 pointer-events: none;
                 z-index: 2;
             }
@@ -299,13 +299,13 @@
             .scroll-indicator {
                 display: flex;
                 justify-content: center;
-                gap: 6px;
-                margin-top: 8px;
+                gap: 8px;
+                margin-top: 12px;
             }
 
             .scroll-dot {
-                width: 6px;
-                height: 6px;
+                width: 10px;
+                height: 10px;
                 border-radius: 50%;
                 background: var(--color-border);
                 transition: all 0.3s ease;
@@ -313,16 +313,16 @@
 
             .scroll-dot.active {
                 background: var(--color-cyan);
-                width: 18px;
-                border-radius: 3px;
+                width: 24px;
+                border-radius: 5px;
             }
 
             /* Grid horizontal con scroll */
             .tiers-grid {
                 display: flex;
                 overflow-x: auto;
-                gap: 10px;
-                padding-bottom: 8px;
+                gap: 14px;
+                padding-bottom: 12px;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
@@ -333,9 +333,9 @@
             }
 
             .tier-card {
-                flex: 0 0 120px;
-                min-width: 120px;
-                padding: 10px 8px;
+                flex: 0 0 160px;
+                min-width: 160px;
+                padding: 16px 14px;
                 scroll-snap-align: start;
             }
 
@@ -344,26 +344,26 @@
             }
 
             .tier-card::before {
-                height: 3px;
+                height: 4px;
             }
 
             .tier-badge-large {
-                width: 36px;
-                height: 36px;
-                font-size: 1.2rem;
-                margin-bottom: 6px;
-                border-width: 2px;
+                width: 54px;
+                height: 54px;
+                font-size: 1.7rem;
+                margin-bottom: 10px;
+                border-width: 3px;
             }
 
             .tier-name {
-                font-size: 0.8rem;
-                margin-bottom: 2px;
+                font-size: 1.15rem;
+                margin-bottom: 5px;
             }
 
             .tier-description {
-                font-size: 0.65rem;
-                margin-bottom: 6px;
-                line-height: 1.3;
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+                line-height: 1.4;
                 display: -webkit-box;
                 -webkit-line-clamp: 2;
                 -webkit-box-orient: vertical;
@@ -371,133 +371,133 @@
             }
 
             .tier-stats {
-                padding: 6px;
-                margin-bottom: 6px;
+                padding: 10px;
+                margin-bottom: 10px;
             }
 
             .tier-stat-row {
-                margin-bottom: 3px;
+                margin-bottom: 5px;
             }
 
             .tier-stat-label {
-                font-size: 0.6rem;
+                font-size: 0.9rem;
             }
 
             .tier-stat-value {
-                font-size: 0.65rem;
+                font-size: 0.95rem;
             }
 
             .tier-timeline {
-                padding: 4px 8px;
-                font-size: 0.6rem;
+                padding: 8px 12px;
+                font-size: 0.9rem;
             }
 
             /* Timeline */
             .implementation-timeline {
-                margin-top: 12px;
+                margin-top: 18px;
             }
 
             .timeline-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 4px;
-                margin-bottom: 8px;
+                gap: 5px;
+                margin-bottom: 12px;
             }
 
             .timeline-header h3 {
-                font-size: 0.9rem;
+                font-size: 1.2rem;
             }
 
             .timeline-total {
-                font-size: 0.8rem;
+                font-size: 1.05rem;
             }
 
             .timeline-bar {
-                height: 32px;
+                height: 42px;
                 flex-wrap: nowrap;
             }
 
             .timeline-segment {
-                font-size: 0.55rem;
-            }
-
-            .timeline-labels {
-                margin-top: 6px;
-            }
-
-            .timeline-label {
-                font-size: 0.6rem;
-            }
-        }
-
-        /* Móvil Pequeño */
-        @media (max-width: 480px) {
-            .catalogo-header h2 {
-                font-size: 1.2rem;
-            }
-
-            .catalogo-header p {
                 font-size: 0.8rem;
             }
 
+            .timeline-labels {
+                margin-top: 10px;
+            }
+
+            .timeline-label {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Móvil Pequeño - 20% más grande */
+        @media (max-width: 480px) {
+            .catalogo-header h2 {
+                font-size: 1.5rem;
+            }
+
+            .catalogo-header p {
+                font-size: 1.05rem;
+            }
+
             .tier-card {
-                flex: 0 0 110px;
-                min-width: 110px;
-                padding: 8px 6px;
+                flex: 0 0 150px;
+                min-width: 150px;
+                padding: 14px 12px;
             }
 
             .tier-badge-large {
-                width: 32px;
-                height: 32px;
-                font-size: 1rem;
-                margin-bottom: 4px;
+                width: 48px;
+                height: 48px;
+                font-size: 1.45rem;
+                margin-bottom: 8px;
             }
 
             .tier-name {
-                font-size: 0.75rem;
+                font-size: 1.05rem;
             }
 
             .tier-description {
-                font-size: 0.6rem;
-                margin-bottom: 4px;
+                font-size: 0.9rem;
+                margin-bottom: 8px;
             }
 
             .tier-stats {
-                padding: 4px;
-                margin-bottom: 4px;
+                padding: 8px;
+                margin-bottom: 8px;
             }
 
             .tier-stat-row {
-                margin-bottom: 2px;
+                margin-bottom: 4px;
             }
 
             .tier-stat-label {
-                font-size: 0.55rem;
-            }
-
-            .tier-stat-value {
-                font-size: 0.6rem;
-            }
-
-            .tier-timeline {
-                padding: 3px 6px;
-                font-size: 0.55rem;
-            }
-
-            .timeline-bar {
-                height: 28px;
-            }
-
-            .timeline-segment {
-                font-size: 0.5rem;
-            }
-
-            .timeline-header h3 {
                 font-size: 0.85rem;
             }
 
+            .tier-stat-value {
+                font-size: 0.9rem;
+            }
+
+            .tier-timeline {
+                padding: 6px 10px;
+                font-size: 0.85rem;
+            }
+
+            .timeline-bar {
+                height: 38px;
+            }
+
+            .timeline-segment {
+                font-size: 0.72rem;
+            }
+
+            .timeline-header h3 {
+                font-size: 1.1rem;
+            }
+
             .timeline-total {
-                font-size: 0.75rem;
+                font-size: 1rem;
             }
         }
     </style>
