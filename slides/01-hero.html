@@ -237,6 +237,130 @@
         .floating-element:nth-child(2) { top: 25%; right: 15%; background: var(--color-red); }
         .floating-element:nth-child(3) { bottom: 30%; left: 20%; }
         .floating-element:nth-child(4) { bottom: 20%; right: 10%; background: var(--color-red); }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-title .highlight {
+                font-size: 3rem;
+            }
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            .hero-stats {
+                gap: 40px;
+            }
+            .hero-stat {
+                padding: 20px 24px;
+            }
+            .hero-stat-value {
+                font-size: 2.5rem;
+            }
+            .hero-logo-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 30px;
+            }
+            .hero-logo-text {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 0 10px;
+            }
+            .hero-logo {
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+            .hero-logo-icon {
+                width: 50px;
+                height: 50px;
+                border-radius: 12px;
+            }
+            .hero-logo-text {
+                font-size: 1.6rem;
+            }
+            .hero-badge {
+                padding: 8px 16px;
+                font-size: 0.8rem;
+                margin-bottom: 20px;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+                margin-bottom: 16px;
+            }
+            .hero-title .highlight {
+                font-size: 2rem;
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+                margin-bottom: 30px;
+                line-height: 1.6;
+            }
+            .hero-stats {
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 30px;
+                width: 100%;
+            }
+            .hero-stat {
+                padding: 16px 20px;
+                width: 100%;
+            }
+            .hero-stat-value {
+                font-size: 2rem;
+                margin-bottom: 4px;
+            }
+            .hero-stat-label {
+                font-size: 0.8rem;
+            }
+            .hero-cta {
+                flex-direction: column;
+                gap: 12px;
+                width: 100%;
+            }
+            .hero-cta .btn {
+                width: 100%;
+                text-align: center;
+            }
+            .circuit-lines::before,
+            .circuit-lines::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .hero-logo-text {
+                font-size: 1.4rem;
+            }
+            .hero-badge {
+                font-size: 0.7rem;
+                padding: 6px 12px;
+            }
+            .hero-title {
+                font-size: 1.5rem;
+            }
+            .hero-title .highlight {
+                font-size: 1.7rem;
+            }
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+            .hero-stat-value {
+                font-size: 1.6rem;
+            }
+            .hero-stat-label {
+                font-size: 0.7rem;
+            }
+        }
     </style>
 </head>
 <body>

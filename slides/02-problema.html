@@ -145,6 +145,103 @@
             width: 1px;
             background: linear-gradient(to bottom, transparent, var(--color-border), transparent);
         }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 992px) {
+            .problema-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .problema-left h2 {
+                font-size: 2.5rem;
+            }
+            .vertical-line {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .problema-left h2 {
+                font-size: 1.8rem;
+                margin-bottom: 16px;
+            }
+            .problema-description {
+                font-size: 1rem;
+                margin-bottom: 24px;
+                line-height: 1.6;
+            }
+            .problema-stats {
+                gap: 24px;
+                justify-content: center;
+            }
+            .problema-stat-value {
+                font-size: 2rem;
+            }
+            .problema-stat-label {
+                font-size: 0.75rem;
+            }
+            .problema-cards {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .problema-card {
+                padding: 16px;
+            }
+            .problema-card-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+            .problema-card-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            .problema-card h4 {
+                font-size: 1rem;
+                margin-bottom: 4px;
+            }
+            .problema-card p {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+            .problema-card.large {
+                grid-column: span 1;
+                flex-direction: column;
+                text-align: center;
+            }
+            .problema-card.large .problema-card-icon {
+                width: 50px;
+                height: 50px;
+            }
+            .problema-card.large .problema-card-content h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .problema-left h2 {
+                font-size: 1.5rem;
+            }
+            .problema-description {
+                font-size: 0.9rem;
+            }
+            .problema-stats {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .problema-stat-value {
+                font-size: 1.8rem;
+            }
+            .problema-card {
+                padding: 14px;
+            }
+            .problema-card h4 {
+                font-size: 0.95rem;
+            }
+            .problema-card p {
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>

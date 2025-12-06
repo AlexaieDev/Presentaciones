@@ -260,6 +260,138 @@
         .comparison-summary strong {
             color: var(--color-cyan);
         }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 992px) {
+            .comparison-header h2 {
+                font-size: 2.2rem;
+            }
+            .comparison-grid {
+                gap: 24px;
+            }
+            .comparison-column {
+                padding: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .comparison-header {
+                margin-bottom: 24px;
+            }
+            .comparison-header h2 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+            .comparison-header p {
+                font-size: 0.9rem;
+            }
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .vs-divider {
+                flex-direction: row;
+                justify-content: center;
+                padding: 8px 0;
+            }
+            .vs-line {
+                height: 2px;
+                width: 40px;
+                flex: none;
+                background: linear-gradient(to right, var(--color-cyan), var(--color-red));
+            }
+            .vs-circle {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            .comparison-column {
+                padding: 20px;
+            }
+            .column-header {
+                margin-bottom: 16px;
+                padding-bottom: 12px;
+            }
+            .column-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 10px;
+            }
+            .column-icon svg {
+                width: 26px;
+                height: 26px;
+            }
+            .column-title {
+                font-size: 1.3rem;
+            }
+            .column-subtitle {
+                font-size: 0.85rem;
+            }
+            .feature-list li {
+                padding: 10px 0;
+                font-size: 0.9rem;
+                gap: 10px;
+            }
+            .feature-bullet {
+                width: 20px;
+                height: 20px;
+            }
+            .feature-bullet svg {
+                width: 12px;
+                height: 12px;
+            }
+            .column-example {
+                padding-top: 12px;
+            }
+            .example-label {
+                font-size: 0.75rem;
+            }
+            .example-text {
+                font-size: 0.85rem;
+            }
+            .comparison-summary {
+                margin-top: 20px;
+                padding: 16px;
+            }
+            .comparison-summary p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .comparison-header h2 {
+                font-size: 1.3rem;
+            }
+            .comparison-header p {
+                font-size: 0.8rem;
+            }
+            .comparison-column {
+                padding: 16px;
+            }
+            .column-icon {
+                width: 44px;
+                height: 44px;
+            }
+            .column-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            .column-title {
+                font-size: 1.1rem;
+            }
+            .feature-list li {
+                font-size: 0.8rem;
+                padding: 8px 0;
+            }
+            .example-text {
+                font-size: 0.8rem;
+            }
+            .vs-circle {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>

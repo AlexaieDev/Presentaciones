@@ -274,23 +274,68 @@
             }
 
             .catalogo-header {
-                margin-bottom: 16px;
+                margin-bottom: 12px;
+            }
+
+            /* Contenedor con indicador de scroll */
+            .tiers-scroll-container {
+                position: relative;
+            }
+
+            /* Indicador de scroll - gradiente a la derecha */
+            .tiers-scroll-container::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: calc(100% - 12px);
+                background: linear-gradient(to right, transparent, rgba(10, 10, 15, 0.9));
+                pointer-events: none;
+                z-index: 2;
+            }
+
+            /* Indicador de puntos de scroll */
+            .scroll-indicator {
+                display: flex;
+                justify-content: center;
+                gap: 6px;
+                margin-top: 8px;
+            }
+
+            .scroll-dot {
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background: var(--color-border);
+                transition: all 0.3s ease;
+            }
+
+            .scroll-dot.active {
+                background: var(--color-cyan);
+                width: 18px;
+                border-radius: 3px;
             }
 
             /* Grid horizontal con scroll */
             .tiers-grid {
                 display: flex;
                 overflow-x: auto;
-                gap: 12px;
-                padding-bottom: 12px;
+                gap: 10px;
+                padding-bottom: 8px;
                 scroll-snap-type: x mandatory;
                 -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+
+            .tiers-grid::-webkit-scrollbar {
+                display: none;
             }
 
             .tier-card {
-                flex: 0 0 140px;
-                min-width: 140px;
-                padding: 16px 12px;
+                flex: 0 0 120px;
+                min-width: 120px;
+                padding: 10px 8px;
                 scroll-snap-align: start;
             }
 
@@ -298,113 +343,161 @@
                 transform: none;
             }
 
+            .tier-card::before {
+                height: 3px;
+            }
+
             .tier-badge-large {
-                width: 50px;
-                height: 50px;
-                font-size: 1.6rem;
-                margin-bottom: 12px;
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+                margin-bottom: 6px;
+                border-width: 2px;
             }
 
             .tier-name {
-                font-size: 1rem;
-                margin-bottom: 6px;
+                font-size: 0.8rem;
+                margin-bottom: 2px;
             }
 
             .tier-description {
-                font-size: 0.75rem;
-                margin-bottom: 12px;
-                line-height: 1.4;
+                font-size: 0.65rem;
+                margin-bottom: 6px;
+                line-height: 1.3;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
             }
 
             .tier-stats {
-                padding: 10px;
-                margin-bottom: 10px;
+                padding: 6px;
+                margin-bottom: 6px;
+            }
+
+            .tier-stat-row {
+                margin-bottom: 3px;
             }
 
             .tier-stat-label {
-                font-size: 0.7rem;
+                font-size: 0.6rem;
             }
 
             .tier-stat-value {
-                font-size: 0.75rem;
+                font-size: 0.65rem;
             }
 
             .tier-timeline {
-                padding: 6px 10px;
-                font-size: 0.7rem;
+                padding: 4px 8px;
+                font-size: 0.6rem;
             }
 
             /* Timeline */
             .implementation-timeline {
-                margin-top: 16px;
+                margin-top: 12px;
             }
 
             .timeline-header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 8px;
-                margin-bottom: 12px;
+                gap: 4px;
+                margin-bottom: 8px;
             }
 
             .timeline-header h3 {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
 
             .timeline-total {
-                font-size: 0.85rem;
+                font-size: 0.8rem;
             }
 
             .timeline-bar {
-                height: 40px;
+                height: 32px;
                 flex-wrap: nowrap;
             }
 
             .timeline-segment {
-                font-size: 0.65rem;
+                font-size: 0.55rem;
             }
 
             .timeline-labels {
-                margin-top: 8px;
+                margin-top: 6px;
             }
 
             .timeline-label {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
         }
 
         /* Móvil Pequeño */
         @media (max-width: 480px) {
             .catalogo-header h2 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+            }
+
+            .catalogo-header p {
+                font-size: 0.8rem;
             }
 
             .tier-card {
-                flex: 0 0 130px;
-                min-width: 130px;
-                padding: 14px 10px;
+                flex: 0 0 110px;
+                min-width: 110px;
+                padding: 8px 6px;
             }
 
             .tier-badge-large {
-                width: 44px;
-                height: 44px;
-                font-size: 1.4rem;
-                margin-bottom: 10px;
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+                margin-bottom: 4px;
             }
 
             .tier-name {
-                font-size: 0.9rem;
+                font-size: 0.75rem;
             }
 
             .tier-description {
-                font-size: 0.7rem;
+                font-size: 0.6rem;
+                margin-bottom: 4px;
+            }
+
+            .tier-stats {
+                padding: 4px;
+                margin-bottom: 4px;
+            }
+
+            .tier-stat-row {
+                margin-bottom: 2px;
+            }
+
+            .tier-stat-label {
+                font-size: 0.55rem;
+            }
+
+            .tier-stat-value {
+                font-size: 0.6rem;
+            }
+
+            .tier-timeline {
+                padding: 3px 6px;
+                font-size: 0.55rem;
             }
 
             .timeline-bar {
-                height: 35px;
+                height: 28px;
             }
 
             .timeline-segment {
-                font-size: 0.6rem;
+                font-size: 0.5rem;
+            }
+
+            .timeline-header h3 {
+                font-size: 0.85rem;
+            }
+
+            .timeline-total {
+                font-size: 0.75rem;
             }
         }
     </style>
@@ -432,107 +525,114 @@
                     <p>75 flujos organizados por impacto y prioridad de implementacion</p>
                 </div>
 
-                <div class="tiers-grid">
-                    <div class="tier-card tier-s">
-                        <div class="tier-badge-large">S</div>
-                        <h4 class="tier-name">Criticos</h4>
-                        <p class="tier-description">Flujos que evitan perdidas y riesgos eticos</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">5</span>
+                <div class="tiers-scroll-container">
+                    <div class="tiers-grid">
+                        <div class="tier-card tier-s">
+                            <div class="tier-badge-large">S</div>
+                            <h4 class="tier-name">Criticos</h4>
+                            <p class="tier-description">Evitan perdidas y riesgos</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">5</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Maxima</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Maxima</span>
-                            </div>
+                            <div class="tier-timeline">Sem 1-2</div>
                         </div>
-                        <div class="tier-timeline">Semana 1-2</div>
-                    </div>
 
-                    <div class="tier-card tier-a">
-                        <div class="tier-badge-large">A</div>
-                        <h4 class="tier-name">Alto Impacto</h4>
-                        <p class="tier-description">Mayor ahorro de tiempo mensual</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">10</span>
+                        <div class="tier-card tier-a">
+                            <div class="tier-badge-large">A</div>
+                            <h4 class="tier-name">Alto Impacto</h4>
+                            <p class="tier-description">Mayor ahorro mensual</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">10</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Alta</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Alta</span>
-                            </div>
+                            <div class="tier-timeline">Sem 3-6</div>
                         </div>
-                        <div class="tier-timeline">Semana 3-6</div>
-                    </div>
 
-                    <div class="tier-card tier-b">
-                        <div class="tier-badge-large">B</div>
-                        <h4 class="tier-name">Medio-Alto</h4>
-                        <p class="tier-description">Productividad y eficiencia</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">15</span>
+                        <div class="tier-card tier-b">
+                            <div class="tier-badge-large">B</div>
+                            <h4 class="tier-name">Medio-Alto</h4>
+                            <p class="tier-description">Productividad diaria</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">15</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Media-Alta</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Media-Alta</span>
-                            </div>
+                            <div class="tier-timeline">Sem 7-10</div>
                         </div>
-                        <div class="tier-timeline">Semana 7-10</div>
-                    </div>
 
-                    <div class="tier-card tier-c">
-                        <div class="tier-badge-large">C</div>
-                        <h4 class="tier-name">Medio</h4>
-                        <p class="tier-description">Eficiencia operacional</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">15</span>
+                        <div class="tier-card tier-c">
+                            <div class="tier-badge-large">C</div>
+                            <h4 class="tier-name">Medio</h4>
+                            <p class="tier-description">Eficiencia operacional</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">15</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Media</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Media</span>
-                            </div>
+                            <div class="tier-timeline">Sem 11-12</div>
                         </div>
-                        <div class="tier-timeline">Semana 11-12</div>
-                    </div>
 
-                    <div class="tier-card tier-d">
-                        <div class="tier-badge-large">D</div>
-                        <h4 class="tier-name">Utiles</h4>
-                        <p class="tier-description">Complementan el sistema</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">15</span>
+                        <div class="tier-card tier-d">
+                            <div class="tier-badge-large">D</div>
+                            <h4 class="tier-name">Utiles</h4>
+                            <p class="tier-description">Complementan sistema</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">15</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Baja</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Baja</span>
-                            </div>
+                            <div class="tier-timeline">Sem 13-14</div>
                         </div>
-                        <div class="tier-timeline">Semana 13-14</div>
-                    </div>
 
-                    <div class="tier-card tier-e">
-                        <div class="tier-badge-large">E</div>
-                        <h4 class="tier-name">Complementarios</h4>
-                        <p class="tier-description">Nice to have</p>
-                        <div class="tier-stats">
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Flujos</span>
-                                <span class="tier-stat-value">15</span>
+                        <div class="tier-card tier-e">
+                            <div class="tier-badge-large">E</div>
+                            <h4 class="tier-name">Extras</h4>
+                            <p class="tier-description">Nice to have</p>
+                            <div class="tier-stats">
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Flujos</span>
+                                    <span class="tier-stat-value">15</span>
+                                </div>
+                                <div class="tier-stat-row">
+                                    <span class="tier-stat-label">Prioridad</span>
+                                    <span class="tier-stat-value">Opcional</span>
+                                </div>
                             </div>
-                            <div class="tier-stat-row">
-                                <span class="tier-stat-label">Prioridad</span>
-                                <span class="tier-stat-value">Opcional</span>
-                            </div>
+                            <div class="tier-timeline">Post-impl.</div>
                         </div>
-                        <div class="tier-timeline">Post-impl.</div>
+                    </div>
+                    <div class="scroll-indicator">
+                        <span class="scroll-dot active"></span>
+                        <span class="scroll-dot"></span>
+                        <span class="scroll-dot"></span>
                     </div>
                 </div>
 

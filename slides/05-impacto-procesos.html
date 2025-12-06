@@ -274,6 +274,138 @@
             color: var(--color-cyan);
             font-size: 1.5rem;
         }
+
+        /* ========== RESPONSIVE MOBILE ========== */
+        @media (max-width: 992px) {
+            .impacto-header h2 {
+                font-size: 2.2rem;
+            }
+            .impacto-flow {
+                gap: 24px;
+            }
+            .flow-box {
+                min-width: 220px;
+                padding: 24px 28px;
+            }
+            .impacto-metrics {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .impacto-header {
+                margin-bottom: 20px;
+            }
+            .impacto-header h2 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+            /* Ocultar proceso visual en móvil - muy complejo */
+            .process-flow {
+                display: none;
+            }
+            .impacto-flow {
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 24px;
+            }
+            .flow-box {
+                min-width: auto;
+                width: 100%;
+                padding: 20px;
+            }
+            .flow-box h4 {
+                font-size: 1.1rem;
+                margin-bottom: 12px;
+            }
+            .flow-step {
+                padding: 6px 0;
+                font-size: 0.85rem;
+            }
+            .flow-step-num {
+                width: 20px;
+                height: 20px;
+                font-size: 0.65rem;
+            }
+            .flow-time {
+                font-size: 1.5rem;
+                margin-top: 12px;
+                padding-top: 12px;
+            }
+            .flow-time span {
+                font-size: 0.85rem;
+            }
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+            .flow-arrow svg {
+                width: 40px;
+                height: 40px;
+            }
+            .impacto-metrics {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .metric-card {
+                padding: 16px;
+            }
+            .metric-icon {
+                width: 40px;
+                height: 40px;
+                margin-bottom: 10px;
+            }
+            .metric-icon svg {
+                width: 22px;
+                height: 22px;
+            }
+            .metric-value {
+                font-size: 1.8rem;
+                margin-bottom: 4px;
+            }
+            .metric-label {
+                font-size: 0.75rem;
+                line-height: 1.3;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .impacto-header h2 {
+                font-size: 1.3rem;
+            }
+            .flow-box {
+                padding: 16px;
+            }
+            .flow-box h4 {
+                font-size: 1rem;
+            }
+            .flow-step {
+                font-size: 0.8rem;
+            }
+            .flow-time {
+                font-size: 1.3rem;
+            }
+            .impacto-metrics {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .metric-card {
+                padding: 12px;
+            }
+            .metric-icon {
+                width: 36px;
+                height: 36px;
+            }
+            .metric-icon svg {
+                width: 18px;
+                height: 18px;
+            }
+            .metric-value {
+                font-size: 1.4rem;
+            }
+            .metric-label {
+                font-size: 0.65rem;
+            }
+        }
     </style>
 </head>
 <body>
