@@ -218,6 +218,195 @@
             font-size: 0.8rem;
             color: var(--color-text-muted);
         }
+
+        /* ========== RESPONSIVE STYLES ========== */
+
+        /* Tablet */
+        @media (max-width: 1200px) {
+            .tiers-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .catalogo-header h2 {
+                font-size: 2.2rem;
+            }
+
+            .tier-badge-large {
+                width: 60px;
+                height: 60px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Tablet pequeña */
+        @media (max-width: 992px) {
+            .tiers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+
+            .catalogo-header {
+                margin-bottom: 24px;
+            }
+
+            .tier-card {
+                padding: 20px 16px;
+            }
+
+            .implementation-timeline {
+                margin-top: 24px;
+            }
+
+            .timeline-bar {
+                height: 50px;
+            }
+        }
+
+        /* Móvil Grande */
+        @media (max-width: 768px) {
+            .catalogo-header h2 {
+                font-size: 1.5rem;
+                margin-bottom: 8px;
+            }
+
+            .catalogo-header p {
+                font-size: 0.9rem;
+            }
+
+            .catalogo-header {
+                margin-bottom: 16px;
+            }
+
+            /* Grid horizontal con scroll */
+            .tiers-grid {
+                display: flex;
+                overflow-x: auto;
+                gap: 12px;
+                padding-bottom: 12px;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .tier-card {
+                flex: 0 0 140px;
+                min-width: 140px;
+                padding: 16px 12px;
+                scroll-snap-align: start;
+            }
+
+            .tier-card:hover {
+                transform: none;
+            }
+
+            .tier-badge-large {
+                width: 50px;
+                height: 50px;
+                font-size: 1.6rem;
+                margin-bottom: 12px;
+            }
+
+            .tier-name {
+                font-size: 1rem;
+                margin-bottom: 6px;
+            }
+
+            .tier-description {
+                font-size: 0.75rem;
+                margin-bottom: 12px;
+                line-height: 1.4;
+            }
+
+            .tier-stats {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            .tier-stat-label {
+                font-size: 0.7rem;
+            }
+
+            .tier-stat-value {
+                font-size: 0.75rem;
+            }
+
+            .tier-timeline {
+                padding: 6px 10px;
+                font-size: 0.7rem;
+            }
+
+            /* Timeline */
+            .implementation-timeline {
+                margin-top: 16px;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 12px;
+            }
+
+            .timeline-header h3 {
+                font-size: 1rem;
+            }
+
+            .timeline-total {
+                font-size: 0.85rem;
+            }
+
+            .timeline-bar {
+                height: 40px;
+                flex-wrap: nowrap;
+            }
+
+            .timeline-segment {
+                font-size: 0.65rem;
+            }
+
+            .timeline-labels {
+                margin-top: 8px;
+            }
+
+            .timeline-label {
+                font-size: 0.65rem;
+            }
+        }
+
+        /* Móvil Pequeño */
+        @media (max-width: 480px) {
+            .catalogo-header h2 {
+                font-size: 1.3rem;
+            }
+
+            .tier-card {
+                flex: 0 0 130px;
+                min-width: 130px;
+                padding: 14px 10px;
+            }
+
+            .tier-badge-large {
+                width: 44px;
+                height: 44px;
+                font-size: 1.4rem;
+                margin-bottom: 10px;
+            }
+
+            .tier-name {
+                font-size: 0.9rem;
+            }
+
+            .tier-description {
+                font-size: 0.7rem;
+            }
+
+            .timeline-bar {
+                height: 35px;
+            }
+
+            .timeline-segment {
+                font-size: 0.6rem;
+            }
+        }
     </style>
 </head>
 <body>
